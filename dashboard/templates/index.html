@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FraudShield AI Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet.heat@0.2.0/dist/leaflet-heat.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo">
+            <div class="logo-icon">🛡️</div>
+            <h1>FraudShield<span>AI</span></h1>
+        </div>
+        <nav>
+            <ul>
+                <li class="active">
+                    <a href="#dashboard" class="nav-link" data-target="dashboard">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                </li>
+                <li>
+                    <a href="#transactions" class="nav-link" data-target="transactions">
+                        <i class="fas fa-exchange-alt"></i> Transactions
+                    </a>
+                </li>
+                <li>
+                    <a href="#analytics" class="nav-link" data-target="analytics">
+                        <i class="fas fa-chart-line"></i> Analytics
+                    </a>
+                </li>
+                <li>
+                    <a href="#settings" class="nav-link" data-target="settings">
+                        <i class="fas fa-cog"></i> Settings
+                    </a>
+                </li>
+                <li>
+                    <a href="/retrain" class="external-link">
+                        <i class="fas fa-sync-alt"></i> Retrain Models
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div class="system-status">
+            <div class="status-indicator"></div>
+            <span>System Online</span>
+            <div class="pulse"></div>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <header>
+            <div class="header-left">
+                <button id="menu-toggle"><i class="fas fa-bars"></i></button>
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search transactions..." id="search-input">
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="date-time">
+                    <div id="current-time">00:00:00</div>
+                    <div id="current-date">Jan 1, 2023</div>
+                </div>
+                <div class="notifications">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge">3</span>
+                </div>
+                <div class="user-profile">
+                    <img src="{{ url_for('static', filename='img/admin.jpg') }}" alt="User" class="user-avatar">
+                    <span>Admin</span>
+                </div>
+            </div>
+        </header>
+
+        <section id="dashboard" class="section active">
+            <div class="section-header">
+                <h2>Fraud Detection Dashboard</h2>
+                <div class="actions">
+                    <button class="btn-outline" id="refresh-dashboard"><i class="fas fa-sync-alt"></i> Refresh</button>
+                    <button class="btn-outline" id="export-dashboard"><i class="fas fa-download"></i> Export</button>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon transactions">
+                        <i class="fas fa-exchange-alt"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Transactions Today</h3>
+                        <p id="transactions-count">0</p>
+                        <span class="trend positive"><i class="fas fa-arrow-up"></i> 12%</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon allowed">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Allowed</h3>
+                        <p id="allowed-count">0</p>
+                        <span class="trend positive"><i class="fas fa-arrow-up"></i> 8%</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon challenged">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Challenged</h3>
+                        <p id="challenged-count">0</p>
+                        <span class="trend negative"><i class="fas fa-arrow-up"></i> 15%</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon blocked">
+                        <i class="fas fa-ban"></i>
+                    </div>
+                    <div class="stat-details">
+                        <h3>Blocked</h3>
+                        <p id="blocked-count">0</p>
+                        <span class="trend negative"><i class="fas fa-arrow-up"></i> 5%</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="charts-row">
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Risk Score Distribution</h3>
+                        <div class="chart-controls">
+                            <select id="risk-time-range">
+                                <option value="today">Today</option>
+                                <option value="week">This Week</option>
+                                <option value="month">This Month</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="risk-distribution"></canvas>
+                    </div>
+                </div>
+                <div class="chart-card">
+                    <div class="chart-header">
+                        <h3>Fraud Patterns</h3>
+                        <div class="chart-controls">
+                            <button class="chart-btn active" data-period="day">Day</button>
+                            <button class="chart-btn" data-period="week">Week</button>
+                            <button class="chart-btn" data-period="month">Month</button>
+                        </div>
+                    </div>
+                    <div class="chart-body">
+                        <canvas id="fraud-patterns"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chart-card full-width">
+                <div class="chart-header">
+                    <h3>AI-Powered Risk Heatmap</h3>
+                    <div class="chart-controls">
+                        <select id="heatmap-view">
+                            <option value="global">Global View</option>
+                            <option value="regional">Regional View</option>
+                            <option value="local">Local View</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="chart-body">
+                    <div id="map-container"></div>
+                    <div class="map-legend">
+                        <div class="legend-item"><span class="color low"></span>Low Risk</div>
+                        <div class="legend-item"><span class="color medium"></span>Medium Risk</div>
+                        <div class="legend-item"><span class="color high"></span>High Risk</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="transactions" class="section">
+            <div class="section-header">
+                <h2>Recent Transactions</h2>
+                <div class="actions">
+                    <div class="filter-dropdown">
+                        <button class="btn-outline" id="filter-button"><i class="fas fa-filter"></i> Filter</button>
+                        <div class="dropdown-content">
+                            <div class="filter-group">
+                                <label>Status:</label>
+                                <select id="status-filter">
+                                    <option value="all">All</option>
+                                    <option value="allow">Allowed</option>
+                                    <option value="challenge">Challenged</option>
+                                    <option value="block">Blocked</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label>Amount:</label>
+                                <select id="amount-filter">
+                                    <option value="all">All</option>
+                                    <option value="low">< $100</option>
+                                    <option value="medium">$100 - $1000</option>
+                                    <option value="high">> $1000</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label>Date Range:</label>
+                                <input type="date" id="date-from">
+                                <input type="date" id="date-to">
+                            </div>
+                            <div class="filter-group">
+                                <label>Time Period:</label>
+                                <select id="time-period-filter">
+                                    <option value="all">All Time</option>
+                                    <option value="today">Today</option>
+                                    <option value="yesterday">Yesterday</option>
+                                    <option value="week">This Week</option>
+                                    <option value="month">This Month</option>
+                                </select>
+                            </div>
+                            <button class="btn-primary" id="apply-filters">Apply Filters</button>
+                            <button class="btn-outline" id="reset-filters">Reset</button>
+                        </div>
+                    </div>
+                    <button class="btn-outline" id="export-transactions"><i class="fas fa-download"></i> Export</button>
+                </div>
+            </div>
+
+            <div class="transactions-table-container">
+                <table id="transactions-table">
+                    <thead>
+                        <tr>
+                            <th data-sort="time">Time <i class="fas fa-sort"></i></th>
+                            <th data-sort="user">User ID <i class="fas fa-sort"></i></th>
+                            <th data-sort="amount">Amount <i class="fas fa-sort"></i></th>
+                            <th data-sort="risk">Risk Score <i class="fas fa-sort"></i></th>
+                            <th data-sort="decision">Decision <i class="fas fa-sort"></i></th>
+                            <th data-sort="explanation">Explanation <i class="fas fa-sort"></i></th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="transactions-body">
+                        <!-- Transactions will be added here dynamically -->
+                    </tbody>
+                </table>
+                <div class="pagination">
+                    <button id="prev-page" disabled><i class="fas fa-chevron-left"></i></button>
+                    <span id="page-info">Page 1 of 1</span>
+                    <button id="next-page" disabled><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <section id="analytics" class="section">
+            <div class="section-header">
+                <h2>Advanced Analytics</h2>
+                <div class="actions">
+                    <div class="filter-dropdown">
+                        <button class="btn-outline" id="analytics-filter-button"><i class="fas fa-filter"></i> Filter</button>
+                        <div class="dropdown-content">
+                            <div class="filter-group">
+                                <label>Time Period:</label>
+                                <select id="analytics-time-filter">
+                                    <option value="day">Last 24 Hours</option>
+                                    <option value="week" selected>Last 7 Days</option>
+                                    <option value="month">Last 30 Days</option>
+                                    <option value="quarter">Last 90 Days</option>
+                                    <option value="year">Last 365 Days</option>
+                                </select>
+                            </div>
+                            <div class="filter-group">
+                                <label>Transaction Type:</label>
+                                <select id="analytics-type-filter">
+                                    <option value="all">All Types</option>
+                                    <option value="purchase">Purchases</option>
+                                    <option value="withdrawal">Withdrawals</option>
+                                    <option value="transfer">Transfers</option>
+                                    <option value="deposit">Deposits</option>
+                                </select>
+                            </div>
+                            <button class="btn-primary" id="apply-analytics-filters">Apply Filters</button>
+                            <button class="btn-outline" id="reset-analytics-filters">Reset</button>
+                        </div>
+                    </div>
+                    <button class="btn-outline" id="export-analytics"><i class="fas fa-download"></i> Export</button>
+                </div>
+            </div>
+            
+            <div class="analytics-cards">
+                <div class="analytics-card">
+                    <h3>Explainable AI Insights</h3>
+                    <div class="xai-insights">
+                        <div class="insight-item">
+                            <div class="insight-icon"><i class="fas fa-clock"></i></div>
+                            <div class="insight-details">
+                                <h4>Time-based Anomalies</h4>
+                                <p>32% of fraud occurs between 2AM-4AM</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 32%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="insight-details">
+                                <h4>Location Jumps</h4>
+                                <p>28% of fraud involves unusual locations</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 28%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon"><i class="fas fa-dollar-sign"></i></div>
+                            <div class="insight-details">
+                                <h4>Amount Anomalies</h4>
+                                <p>24% of fraud involves unusual amounts</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 24%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="insight-item">
+                            <div class="insight-icon"><i class="fas fa-mobile-alt"></i></div>
+                            <div class="insight-details">
+                                <h4>Device Switching</h4>
+                                <p>16% of fraud involves unfamiliar devices</p>
+                                <div class="progress-bar">
+                                    <div class="progress" style="width: 16%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="analytics-card">
+                    <h3>Model Performance</h3>
+                    <div class="model-metrics">
+                        <div class="metric-item">
+                            <div class="metric-value">94.2%</div>
+                            <div class="metric-label">Precision</div>
+                            <div class="metric-chart">
+                                <canvas id="precision-chart"></canvas>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">91.7%</div>
+                            <div class="metric-label">Recall</div>
+                            <div class="metric-chart">
+                                <canvas id="recall-chart"></canvas>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">92.9%</div>
+                            <div class="metric-label">F1 Score</div>
+                            <div class="metric-chart">
+                                <canvas id="f1-chart"></canvas>
+                            </div>
+                        </div>
+                        <div class="metric-item">
+                            <div class="metric-value">0.968</div>
+                            <div class="metric-label">AUC-ROC</div>
+                            <div class="metric-chart">
+                                <canvas id="auc-chart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="settings" class="section">
+            <div class="section-header">
+                <h2>Test Transaction</h2>
+            </div>
+            
+            <div class="test-transaction-container">
+                <form id="transaction-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="user-id">User ID</label>
+                            <input type="text" id="user-id" placeholder="Enter user ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="amount">Amount ($)</label>
+                            <input type="number" id="amount" placeholder="Enter amount" step="0.01" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="device-id">Device ID</label>
+                            <input type="text" id="device-id" placeholder="Enter device ID" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="transaction-type">Transaction Type</label>
+                            <select id="transaction-type">
+                                <option value="purchase">Purchase</option>
+                                <option value="withdrawal">Withdrawal</option>
+                                <option value="transfer">Transfer</option>
+                                <option value="deposit">Deposit</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="latitude">Latitude</label>
+                            <input type="number" id="latitude" placeholder="Enter latitude" step="0.000001">
+                        </div>
+                        <div class="form-group">
+                            <label for="longitude">Longitude</label>
+                            <input type="number" id="longitude" placeholder="Enter longitude" step="0.000001">
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Submit Transaction</button>
+                        <button type="button" class="btn-outline" id="random-transaction">Generate Random</button>
+                    </div>
+                </form>
+                
+                <div class="result-container" id="result-container" style="display: none;">
+                    <div class="result-header">
+                        <h3>Transaction Result</h3>
+                        <button class="close-btn"><i class="fas fa-times"></i></button>
+                    </div>
+                    <div class="result-body">
+                        <div class="result-score">
+                            <div class="score-gauge">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="score-background" cx="60" cy="60" r="54" />
+                                    <circle class="score-value" cx="60" cy="60" r="54" />
+                                    <text class="score-text" x="60" y="65" text-anchor="middle"></text>
+                                </svg>
+                            </div>
+                            <div class="score-label">Risk Score</div>
+                        </div>
+                        <div class="result-details">
+                            <div class="result-item">
+                                <span class="label">Decision:</span>
+                                <span class="value decision"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Message:</span>
+                                <span class="value message"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Transaction ID:</span>
+                                <span class="value transaction-id"></span>
+                            </div>
+                            <div class="result-item">
+                                <span class="label">Processed at:</span>
+                                <span class="value processed-time"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-factors">
+                        <h4>Risk Factors</h4>
+                        <div id="result-feature-importance" class="feature-bars">
+                            <!-- Feature importance bars will be added here -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Transaction Detail Modal - Updated with LLM integration -->
+    <div id="transaction-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Transaction Details</h3>
+                <button class="close-modal"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="transaction-info">
+                    <div class="info-section">
+                        <h4>Basic Information</h4>
+                        <div class="info-grid">
+                            <div class="info-item">
+                                <span class="label">Transaction ID:</span>
+                                <span class="value" id="modal-transaction-id"></span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">User ID:</span>
+                                <span class="value" id="modal-user-id"></span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Amount:</span>
+                                <span class="value" id="modal-amount"></span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Time:</span>
+                                <span class="value" id="modal-time"></span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Device ID:</span>
+                                <span class="value" id="modal-device-id"></span>
+                            </div>
+                            <div class="info-item">
+                                <span class="label">Location:</span>
+                                <span class="value" id="modal-location"></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h4>Risk Assessment</h4>
+                        <div class="risk-indicator">
+                            <div class="risk-gauge">
+                                <svg viewBox="0 0 120 120">
+                                    <circle class="risk-background" cx="60" cy="60" r="54" />
+                                    <circle class="risk-value" cx="60" cy="60" r="54" />
+                                    <text class="risk-text" x="60" y="65" text-anchor="middle"></text>
+                                </svg>
+                            </div>
+                            <div class="risk-details">
+                                <div class="risk-decision" id="modal-decision"></div>
+                                <div class="risk-message" id="modal-message"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AI Analysis Section -->
+                    <div class="info-section">
+                        <div class="section-header-with-action">
+                            <h4>AI Analysis</h4>
+                            <button class="btn-outline btn-sm" id="analyze-with-llm">
+                                <i class="fas fa-robot"></i> Analyze with AI
+                            </button>
+                        </div>
+                        <div id="ai-analysis-loading" class="loading-spinner" style="display: none;">
+                            <div class="spinner"></div>
+                            <p>Analyzing transaction...</p>
+                        </div>
+                        <div id="ai-analysis-content">
+                            <div id="ai-explanation" class="ai-explanation">
+                                <p class="placeholder-text">Click "Analyze with AI" to get an AI-powered explanation of this transaction.</p>
+                            </div>
+                            <div id="feature-importance-container" class="feature-importance-container" style="display: none;">
+                                <h5>Feature Importance:</h5>
+                                <div id="modal-feature-importance" class="feature-bars">
+                                    <!-- Feature importance bars will be added here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Fraud Assistant Chat Section -->
+                    <div class="info-section">
+                        <h4>Fraud Investigation Assistant</h4>
+                        <div class="chat-container">
+                            <div id="chat-messages" class="chat-messages">
+                                <div class="system-message">
+                                    <p>Hello! I'm your fraud investigation assistant. How can I help with this transaction?</p>
+                                </div>
+                            </div>
+                            <div class="chat-input-container">
+                                <input type="text" id="chat-input" class="chat-input" placeholder="Ask a question about this transaction...">
+                                <button id="send-chat" class="btn-primary btn-sm">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                            <div id="suggested-actions" class="suggested-actions" style="display: none;">
+                                <h5>Suggested Actions:</h5>
+                                <div id="action-buttons" class="action-buttons">
+                                    <!-- Action buttons will be added here -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="info-section">
+                        <h4>Transaction Location</h4>
+                        <div id="modal-map" class="modal-map"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-outline" id="modal-close">Close</button>
+                <div class="dropdown">
+                    <button class="btn-primary dropdown-toggle" id="action-dropdown">
+                        Take Action <i class="fas fa-caret-down"></i>
+                    </button>
+                    <div class="dropdown-menu">
+                        <a href="#" class="dropdown-item" id="approve-transaction">Approve Transaction</a>
+                        <a href="#" class="dropdown-item" id="flag-for-review">Flag for Review</a>
+                        <a href="#" class="dropdown-item" id="block-transaction">Block Transaction</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="#" class="dropdown-item" id="add-to-whitelist">Add to Whitelist</a>
+                        <a href="#" class="dropdown-item" id="add-to-blacklist">Add to Blacklist</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+    
+    <!-- LLM Integration Script -->
+    <script>
+        // Store current transaction for AI analysis
+        let currentTransaction = null;
+        let conversationHistory = [];
+        
+        // Initialize dropdown functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const actionDropdown = document.getElementById('action-dropdown');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            
+            if (actionDropdown) {
+                actionDropdown.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    dropdownMenu.classList.toggle('show');
+                });
+                
+                // Close dropdown when clicking outside
+                document.addEventListener('click', function(e) {
+                    if (!e.target.matches('.dropdown-toggle') && !e.target.closest('.dropdown-menu')) {
+                        dropdownMenu.classList.remove('show');
+                    }
+                });
+            }
+            
+            // Initialize LLM analysis button
+            const analyzeButton = document.getElementById('analyze-with-llm');
+            if (analyzeButton) {
+                analyzeButton.addEventListener('click', analyzeWithLLM);
+            }
+            
+            // Initialize chat functionality
+            const sendChatButton = document.getElementById('send-chat');
+            const chatInput = document.getElementById('chat-input');
+            
+            if (sendChatButton && chatInput) {
+                sendChatButton.addEventListener('click', function() {
+                    const message = chatInput.value.trim();
+                    if (message) {
+                        sendChatMessage(message);
+                    }
+                });
+                
+                chatInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        const message = chatInput.value.trim();
+                        if (message) {
+                            sendChatMessage(message);
+                        }
+                    }
+                });
+            }
+        });
+        
+        // Function to analyze transaction with LLM
+        function analyzeWithLLM() {
+            if (!currentTransaction) return;
+            
+            // Show loading indicator
+            document.getElementById('ai-analysis-loading').style.display = 'flex';
+            document.getElementById('ai-analysis-content').style.display = 'none';
+            
+            // Call the LLM analysis API
+            fetch('/api/llm-analyze', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(currentTransaction)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Hide loading indicator
+                document.getElementById('ai-analysis-loading').style.display = 'none';
+                document.getElementById('ai-analysis-content').style.display = 'block';
+                
+                // Update explanation
+                const aiExplanation = document.getElementById('ai-explanation');
+                aiExplanation.innerHTML = '';
+                aiExplanation.classList.remove('placeholder-text');
+                
+                const explanationPara = document.createElement('p');
+                explanationPara.textContent = data.explanation || 'No explanation available.';
+                aiExplanation.appendChild(explanationPara);
+                
+                // Display feature importance if available
+                const featureContainer = document.getElementById('feature-importance-container');
+                const featureBars = document.getElementById('modal-feature-importance');
+                
+                if (data.feature_importance && Object.keys(data.feature_importance).length > 0) {
+                    featureContainer.style.display = 'block';
+                    featureBars.innerHTML = '';
+                    
+                    // Sort features by absolute importance
+                    const sortedFeatures = Object.entries(data.feature_importance)
+                    .sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]));
+                    
+                    // Create feature importance bars
+                    sortedFeatures.forEach(([feature, importance]) => {
+                        const barContainer = document.createElement('div');
+                        barContainer.className = 'feature-bar-container';
+                        
+                        const featureLabel = document.createElement('div');
+                        featureLabel.className = 'feature-label';
+                        featureLabel.textContent = feature;
+                        
+                        const barWrapper = document.createElement('div');
+                        barWrapper.className = 'bar-wrapper';
+                        
+                        const bar = document.createElement('div');
+                        bar.className = 'feature-bar';
+                        bar.style.width = `${Math.min(Math.abs(importance) * 100, 100)}%`;
+                        bar.classList.add(importance > 0 ? 'positive' : 'negative');
+                        
+                        const valueLabel = document.createElement('span');
+                        valueLabel.className = 'feature-value';
+                        valueLabel.textContent = importance.toFixed(2);
+                        
+                        barWrapper.appendChild(bar);
+                        barWrapper.appendChild(valueLabel);
+                        
+                        barContainer.appendChild(featureLabel);
+                        barContainer.appendChild(barWrapper);
+                        
+                        featureBars.appendChild(barContainer);
+                    });
+                } else {
+                    featureContainer.style.display = 'none';
+                }
+                
+                // Show suggested actions if available
+                const suggestedActions = document.getElementById('suggested-actions');
+                const actionButtons = document.getElementById('action-buttons');
+                
+                if (data.suggested_actions && data.suggested_actions.length > 0) {
+                    suggestedActions.style.display = 'block';
+                    actionButtons.innerHTML = '';
+                    
+                    data.suggested_actions.forEach(action => {
+                        const button = document.createElement('button');
+                        button.className = 'action-button';
+                        button.textContent = action.label;
+                        button.addEventListener('click', () => {
+                            executeAction(action.id, action.label);
+                        });
+                        actionButtons.appendChild(button);
+                    });
+                } else {
+                    suggestedActions.style.display = 'none';
+                }
+            })
+            .catch(error => {
+                console.error('Error analyzing transaction:', error);
+                document.getElementById('ai-analysis-loading').style.display = 'none';
+                document.getElementById('ai-analysis-content').style.display = 'block';
+                
+                const aiExplanation = document.getElementById('ai-explanation');
+                aiExplanation.innerHTML = '<p class="error-text">Error analyzing transaction. Please try again later.</p>';
+            });
+        }
+        
+        // Function to send chat message to LLM
+        function sendChatMessage(message) {
+            if (!currentTransaction) return;
+            
+            // Add user message to chat
+            const chatMessages = document.getElementById('chat-messages');
+            const userMessageDiv = document.createElement('div');
+            userMessageDiv.className = 'user-message';
+            userMessageDiv.innerHTML = `<p>${message}</p>`;
+            chatMessages.appendChild(userMessageDiv);
+            
+            // Clear input
+            document.getElementById('chat-input').value = '';
+            
+            // Add loading indicator
+            const loadingDiv = document.createElement('div');
+            loadingDiv.className = 'assistant-message loading';
+            loadingDiv.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+            chatMessages.appendChild(loadingDiv);
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Update conversation history
+            conversationHistory.push({
+                role: 'user',
+                content: message
+            });
+            
+            // Call the LLM chat API
+            fetch('/api/llm-chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    transaction: currentTransaction,
+                    message: message,
+                    history: conversationHistory
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Remove loading indicator
+                chatMessages.removeChild(loadingDiv);
+                
+                // Add assistant message
+                const assistantMessageDiv = document.createElement('div');
+                assistantMessageDiv.className = 'assistant-message';
+                assistantMessageDiv.innerHTML = `<p>${data.response}</p>`;
+                chatMessages.appendChild(assistantMessageDiv);
+                
+                // Update conversation history
+                conversationHistory.push({
+                    role: 'assistant',
+                    content: data.response
+                });
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Update suggested actions if available
+                const suggestedActions = document.getElementById('suggested-actions');
+                const actionButtons = document.getElementById('action-buttons');
+                
+                if (data.suggested_actions && data.suggested_actions.length > 0) {
+                    suggestedActions.style.display = 'block';
+                    actionButtons.innerHTML = '';
+                    
+                    data.suggested_actions.forEach(action => {
+                        const button = document.createElement('button');
+                        button.className = 'action-button';
+                        button.textContent = action.label;
+                        button.addEventListener('click', () => {
+                            executeAction(action.id, action.label);
+                        });
+                        actionButtons.appendChild(button);
+                    });
+                }
+            })
+            .catch(error => {
+                console.error('Error sending message:', error);
+                
+                // Remove loading indicator
+                chatMessages.removeChild(loadingDiv);
+                
+                // Add error message
+                const errorMessageDiv = document.createElement('div');
+                errorMessageDiv.className = 'system-message error';
+                errorMessageDiv.innerHTML = '<p>Error sending message. Please try again.</p>';
+                chatMessages.appendChild(errorMessageDiv);
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            });
+        }
+        
+        // Function to execute suggested action
+        function executeAction(actionId, actionLabel) {
+            if (!currentTransaction) return;
+            
+            // Add system message about the action
+            const chatMessages = document.getElementById('chat-messages');
+            const systemMessageDiv = document.createElement('div');
+            systemMessageDiv.className = 'system-message';
+            systemMessageDiv.innerHTML = `<p>Executing action: ${actionLabel}...</p>`;
+            chatMessages.appendChild(systemMessageDiv);
+            
+            // Scroll to bottom
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+            
+            // Call the action API
+            fetch('/api/execute-action', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    transaction_id: currentTransaction.id,
+                    action_id: actionId
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Add result message
+                const resultMessageDiv = document.createElement('div');
+                resultMessageDiv.className = 'system-message';
+                resultMessageDiv.innerHTML = `<p>${data.message}</p>`;
+                chatMessages.appendChild(resultMessageDiv);
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Update transaction status if needed
+                if (data.status_updated && data.new_status) {
+                    document.getElementById('modal-decision').textContent = data.new_status;
+                    document.getElementById('modal-decision').className = `risk-decision ${data.new_status.toLowerCase()}`;
+                }
+            })
+            .catch(error => {
+                console.error('Error executing action:', error);
+                
+                // Add error message
+                const errorMessageDiv = document.createElement('div');
+                errorMessageDiv.className = 'system-message error';
+                errorMessageDiv.innerHTML = '<p>Error executing action. Please try again.</p>';
+                chatMessages.appendChild(errorMessageDiv);
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            });
+        }
+        
+        // Function to open transaction modal with data
+        function openTransactionModal(transaction) {
+            // Store current transaction for AI analysis
+            currentTransaction = transaction;
+            conversationHistory = [];
+            
+            // Reset chat
+            const chatMessages = document.getElementById('chat-messages');
+            chatMessages.innerHTML = '<div class="system-message"><p>Hello! I\'m your fraud investigation assistant. How can I help with this transaction?</p></div>';
+            
+            // Reset AI analysis
+            const aiExplanation = document.getElementById('ai-explanation');
+            aiExplanation.innerHTML = '<p class="placeholder-text">Click "Analyze with AI" to get an AI-powered explanation of this transaction.</p>';
+            document.getElementById('feature-importance-container').style.display = 'none';
+            document.getElementById('suggested-actions').style.display = 'none';
+            
+            // Fill in transaction details
+            document.getElementById('modal-transaction-id').textContent = transaction.id;
+            document.getElementById('modal-user-id').textContent = transaction.user_id;
+            document.getElementById('modal-amount').textContent = `$${transaction.amount.toFixed(2)}`;
+            document.getElementById('modal-time').textContent = new Date(transaction.timestamp).toLocaleString();
+            document.getElementById('modal-device-id').textContent = transaction.device_id;
+            document.getElementById('modal-location').textContent = transaction.location ? 
+                `${transaction.location.lat.toFixed(6)}, ${transaction.location.lng.toFixed(6)}` : 'Unknown';
+            
+            // Set risk score and decision
+            const riskText = document.querySelector('.risk-text');
+            const riskValue = document.querySelector('.risk-value');
+            riskText.textContent = transaction.risk_score;
+            
+            // Calculate stroke-dasharray for risk gauge
+            const circumference = 2 * Math.PI * 54;
+            const dashOffset = circumference * (1 - transaction.risk_score / 100);
+            riskValue.style.strokeDasharray = circumference;
+            riskValue.style.strokeDashoffset = dashOffset;
+            
+            // Set risk color based on score
+            if (transaction.risk_score < 30) {
+                riskValue.style.stroke = 'var(--success-color)';
+            } else if (transaction.risk_score < 70) {
+                riskValue.style.stroke = 'var(--warning-color)';
+            } else {
+                riskValue.style.stroke = 'var(--danger-color)';
+            }
+            
+            // Set decision and message
+            document.getElementById('modal-decision').textContent = transaction.decision;
+            document.getElementById('modal-decision').className = `risk-decision ${transaction.decision.toLowerCase()}`;
+            document.getElementById('modal-message').textContent = transaction.message || 'No additional information available.';
+            
+            // Initialize map if location exists
+            if (transaction.location) {
+                setTimeout(() => {
+                    const map = L.map('modal-map').setView([transaction.location.lat, transaction.location.lng], 13);
+                    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                    }).addTo(map);
+                    
+                    L.marker([transaction.location.lat, transaction.location.lng]).addTo(map)
+                        .bindPopup(`Transaction Location<br>$${transaction.amount.toFixed(2)}`).openPopup();
+                    
+                    // Force map redraw
+                    map.invalidateSize();
+                }, 100);
+            } else {
+                document.getElementById('modal-map').innerHTML = '<div class="no-location">No location data available</div>';
+            }
+            
+            // Show modal
+            document.getElementById('transaction-modal').classList.add('show');
+        }
+        
+        // Add event listeners for modal close buttons
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('transaction-modal');
+            const closeButtons = document.querySelectorAll('.close-modal, #modal-close');
+            
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    modal.classList.remove('show');
+                    
+                    // Clear map to prevent memory leaks
+                    document.getElementById('modal-map').innerHTML = '';
+                });
+            });
+            
+            // Close modal when clicking outside
+            window.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    modal.classList.remove('show');
+                    
+                    // Clear map to prevent memory leaks
+                    document.getElementById('modal-map').innerHTML = '';
+                }
+            });
+        });
+    </script>
+        <!-- Toast Alert Container -->
+        <div id="toast-container" style="position:fixed;top:24px;right:24px;z-index:9999;"></div>
+
+        <script>
+            // --- Toast Alerting System ---
+            function showToast(message, type = 'info', duration = 3000) {
+                const toastContainer = document.getElementById('toast-container');
+                const toast = document.createElement('div');
+                toast.className = `toast-alert toast-${type}`;
+                toast.style.cssText = `
+                    min-width:220px;
+                    margin-bottom:10px;
+                    padding:12px 20px;
+                    border-radius:6px;
+                    background:${type === 'error' ? '#ffebee' : type === 'success' ? '#e8f5e9' : '#e3f2fd'};
+                    color:${type === 'error' ? '#b71c1c' : type === 'success' ? '#1b5e20' : '#1565c0'};
+                    box-shadow:0 2px 8px rgba(0,0,0,0.08);
+                    font-size:1em;
+                    display:flex;
+                    align-items:center;
+                    gap:10px;
+                    animation:fadeIn 0.3s;
+                `;
+                toast.innerHTML = `<i class="fas fa-${
+                    type === 'error' ? 'exclamation-circle' : type === 'success' ? 'check-circle' : 'info-circle'
+                }"></i> <span>${message}</span>`;
+                toastContainer.appendChild(toast);
+                setTimeout(() => {
+                    toast.style.animation = 'fadeOut 0.4s';
+                    setTimeout(() => toast.remove(), 400);
+                }, duration);
+            }
+            
+            // Toast fade animations
+            const style = document.createElement('style');
+            style.innerHTML = `
+            @keyframes fadeIn { from { opacity:0; transform:translateY(-10px);} to { opacity:1; transform:translateY(0);} }
+            @keyframes fadeOut { from { opacity:1; } to { opacity:0; transform:translateY(-10px);} }
+            `;
+            document.head.appendChild(style);
+    
+            // --- Mock API for LLM features (for demo/testing) ---
+            function mockLlmAnalyze(transaction) {
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        resolve({
+                            explanation: `This transaction appears ${transaction.risk_score > 70 ? 'highly suspicious' : transaction.risk_score > 40 ? 'somewhat suspicious' : 'normal'}. ${
+                                transaction.risk_score > 70 
+                                    ? 'The unusually large amount combined with the location being far from the user\'s typical activity area raises concerns.' 
+                                    : transaction.risk_score > 40 
+                                        ? 'There are some minor anomalies in the transaction pattern, but they may be explained by normal user behavior changes.' 
+                                        : 'All transaction parameters fall within the user\'s normal behavior patterns.'
+                            }`,
+                            feature_importance: {
+                                "Transaction Amount": transaction.risk_score > 50 ? 0.78 : 0.32,
+                                "Location": transaction.risk_score > 60 ? -0.65 : -0.25,
+                                "Time of Day": transaction.risk_score > 40 ? 0.45 : 0.18,
+                                "Device Familiarity": transaction.risk_score > 30 ? -0.38 : -0.12,
+                                "User History": transaction.risk_score > 20 ? 0.29 : 0.08
+                            },
+                            suggested_actions: [
+                                { id: 'approve', label: 'Approve Transaction' },
+                                { id: 'flag', label: 'Flag for Review' },
+                                transaction.risk_score > 60 ? { id: 'block', label: 'Block Transaction' } : null,
+                                transaction.risk_score < 30 ? { id: 'whitelist', label: 'Add to Whitelist' } : null
+                            ].filter(Boolean)
+                        });
+                    }, 1200);
+                });
+            }
+    
+            function mockLlmChat({ message, transaction, history }) {
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        let response = '';
+                        let actions = [];
+                        
+                        // Simple pattern matching for demo purposes
+                        if (message.toLowerCase().includes('why') && message.toLowerCase().includes('flagged')) {
+                            response = `This transaction was flagged because the risk score of ${transaction.risk_score} exceeds our threshold. The main contributing factors are unusual location and transaction amount.`;
+                            actions = [{ id: 'approve', label: 'Approve Anyway' }, { id: 'block', label: 'Block Transaction' }];
+                        } 
+                        else if (message.toLowerCase().includes('user') && message.toLowerCase().includes('history')) {
+                            response = `User ${transaction.user_id} has completed ${Math.floor(Math.random() * 50) + 5} transactions in the past 30 days with an average amount of $${(Math.random() * 200 + 50).toFixed(2)}.`;
+                            actions = [{ id: 'user_details', label: 'View User Details' }];
+                        }
+                        else if (message.toLowerCase().includes('recommend') || message.toLowerCase().includes('suggest')) {
+                            response = transaction.risk_score > 70 
+                                ? "I recommend blocking this transaction due to the high risk score and unusual patterns."
+                                : transaction.risk_score > 40
+                                    ? "I suggest flagging this transaction for further review. While there are some anomalies, they may be legitimate."
+                                    : "This transaction appears legitimate. I recommend approving it.";
+                            
+                            actions = transaction.risk_score > 70 
+                                ? [{ id: 'block', label: 'Block Transaction' }]
+                                : transaction.risk_score > 40
+                                    ? [{ id: 'flag', label: 'Flag for Review' }, { id: 'approve', label: 'Approve Anyway' }]
+                                    : [{ id: 'approve', label: 'Approve Transaction' }, { id: 'whitelist', label: 'Add to Whitelist' }];
+                        }
+                        else {
+                            response = `I've analyzed this ${transaction.risk_score > 70 ? 'high' : transaction.risk_score > 40 ? 'medium' : 'low'} risk transaction. The risk score is ${transaction.risk_score}. What specific information would you like to know about it?`;
+                            actions = [
+                                { id: 'analyze_patterns', label: 'Analyze Patterns' },
+                                { id: 'user_history', label: 'Check User History' }
+                            ];
+                        }
+                        
+                        resolve({
+                            response: response,
+                            suggested_actions: actions
+                        });
+                    }, 1000);
+                });
+            }
+    
+            function mockExecuteAction({ action_id, transaction_id }) {
+                return new Promise(resolve => {
+                    setTimeout(() => {
+                        let message = '';
+                        let status_updated = false;
+                        let new_status = '';
+                        
+                        switch(action_id) {
+                            case 'approve':
+                                message = `Transaction ${transaction_id} has been approved.`;
+                                status_updated = true;
+                                new_status = 'Allowed';
+                                break;
+                            case 'flag':
+                                message = `Transaction ${transaction_id} has been flagged for manual review.`;
+                                status_updated = true;
+                                new_status = 'Challenged';
+                                break;
+                            case 'block':
+                                message = `Transaction ${transaction_id} has been blocked.`;
+                                status_updated = true;
+                                new_status = 'Blocked';
+                                break;
+                            case 'whitelist':
+                                message = `User has been added to the whitelist. Future similar transactions will be approved automatically.`;
+                                break;
+                            case 'user_details':
+                                message = `User details have been retrieved and sent to your dashboard.`;
+                                break;
+                            case 'analyze_patterns':
+                                message = `Pattern analysis complete. No suspicious patterns detected in recent transactions.`;
+                                break;
+                            case 'user_history':
+                                message = `User history check complete. User has 2 previous flagged transactions out of 37 total.`;
+                                break;
+                            default:
+                                message = `Action "${action_id}" executed successfully.`;
+                        }
+                        
+                        resolve({
+                            message: message,
+                            status_updated: status_updated,
+                            new_status: new_status
+                        });
+                    }, 800);
+                });
+            }
+    
+            // --- Update LLM Feature Functions to use mock APIs and show toasts ---
+            function analyzeWithLLM() {
+                if (!currentTransaction) {
+                    showToast('No transaction selected', 'error');
+                    return;
+                }
+                
+                document.getElementById('ai-analysis-loading').style.display = 'flex';
+                document.getElementById('ai-analysis-content').style.display = 'none';
+                
+                // Use mock API for demo instead of real fetch
+                mockLlmAnalyze(currentTransaction)
+                .then(data => {
+                    document.getElementById('ai-analysis-loading').style.display = 'none';
+                    document.getElementById('ai-analysis-content').style.display = 'block';
+                    
+                    // Update explanation
+                    const aiExplanation = document.getElementById('ai-explanation');
+                    aiExplanation.innerHTML = '';
+                    aiExplanation.classList.remove('placeholder-text');
+                    
+                    const explanationPara = document.createElement('p');
+                    explanationPara.textContent = data.explanation || 'No explanation available.';
+                    aiExplanation.appendChild(explanationPara);
+                    
+                    // Display feature importance if available
+                    const featureContainer = document.getElementById('feature-importance-container');
+                    const featureBars = document.getElementById('modal-feature-importance');
+                    
+                    if (data.feature_importance && Object.keys(data.feature_importance).length > 0) {
+                        featureContainer.style.display = 'block';
+                        featureBars.innerHTML = '';
+                        
+                        // Sort features by absolute importance
+                        const sortedFeatures = Object.entries(data.feature_importance)
+                        .sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]));
+                        
+                        // Create feature importance bars
+                        sortedFeatures.forEach(([feature, importance]) => {
+                            const barContainer = document.createElement('div');
+                            barContainer.className = 'feature-bar-container';
+                            
+                            const featureLabel = document.createElement('div');
+                            featureLabel.className = 'feature-label';
+                            featureLabel.textContent = feature;
+                            
+                            const barWrapper = document.createElement('div');
+                            barWrapper.className = 'bar-wrapper';
+                            
+                            const bar = document.createElement('div');
+                            bar.className = 'feature-bar';
+                            bar.style.width = `${Math.min(Math.abs(importance) * 100, 100)}%`;
+                            bar.classList.add(importance > 0 ? 'positive' : 'negative');
+                            
+                            const valueLabel = document.createElement('span');
+                            valueLabel.className = 'feature-value';
+                            valueLabel.textContent = importance.toFixed(2);
+                            
+                            barWrapper.appendChild(bar);
+                            barWrapper.appendChild(valueLabel);
+                            
+                            barContainer.appendChild(featureLabel);
+                            barContainer.appendChild(barWrapper);
+                            
+                            featureBars.appendChild(barContainer);
+                        });
+                    } else {
+                        featureContainer.style.display = 'none';
+                    }
+                    
+                    // Show suggested actions if available
+                    const suggestedActions = document.getElementById('suggested-actions');
+                    const actionButtons = document.getElementById('action-buttons');
+                    
+                    if (data.suggested_actions && data.suggested_actions.length > 0) {
+                        suggestedActions.style.display = 'block';
+                        actionButtons.innerHTML = '';
+                        
+                        data.suggested_actions.forEach(action => {
+                            const button = document.createElement('button');
+                            button.className = 'action-button';
+                            button.textContent = action.label;
+                            button.addEventListener('click', () => {
+                                executeAction(action.id, action.label);
+                            });
+                            actionButtons.appendChild(button);
+                        });
+                    } else {
+                        suggestedActions.style.display = 'none';
+                    }
+                    
+                    showToast('AI analysis complete!', 'success');
+                })
+                .catch(error => {
+                    console.error('Error analyzing transaction:', error);
+                    document.getElementById('ai-analysis-loading').style.display = 'none';
+                    document.getElementById('ai-analysis-content').style.display = 'block';
+                    
+                    const aiExplanation = document.getElementById('ai-explanation');
+                    aiExplanation.innerHTML = '<p class="error-text">Error analyzing transaction. Please try again later.</p>';
+                    
+                    showToast('Error analyzing transaction', 'error');
+                });
+            }
+            
+            // Update sendChatMessage to use mock API
+            function sendChatMessage(message) {
+                if (!currentTransaction) {
+                    showToast('No transaction selected', 'error');
+                    return;
+                }
+                
+                // Add user message to chat
+                const chatMessages = document.getElementById('chat-messages');
+                const userMessageDiv = document.createElement('div');
+                userMessageDiv.className = 'user-message';
+                userMessageDiv.innerHTML = `<p>${message}</p>`;
+                chatMessages.appendChild(userMessageDiv);
+                
+                // Clear input
+                document.getElementById('chat-input').value = '';
+                
+                // Add loading indicator
+                const loadingDiv = document.createElement('div');
+                loadingDiv.className = 'assistant-message loading';
+                loadingDiv.innerHTML = '<div class="typing-indicator"><span></span><span></span><span></span></div>';
+                chatMessages.appendChild(loadingDiv);
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Update conversation history
+                conversationHistory.push({
+                    role: 'user',
+                    content: message
+                });
+                
+                // Use mock API instead of real fetch
+                mockLlmChat({
+                    transaction: currentTransaction,
+                    message: message,
+                    history: conversationHistory
+                })
+                .then(data => {
+                    // Remove loading indicator
+                    chatMessages.removeChild(loadingDiv);
+                    
+                    // Add assistant message
+                    const assistantMessageDiv = document.createElement('div');
+                    assistantMessageDiv.className = 'assistant-message';
+                    assistantMessageDiv.innerHTML = `<p>${data.response}</p>`;
+                    chatMessages.appendChild(assistantMessageDiv);
+                    
+                    // Update conversation history
+                    conversationHistory.push({
+                        role: 'assistant',
+                        content: data.response
+                    });
+                    
+                    // Scroll to bottom
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    
+                    // Update suggested actions if available
+                    const suggestedActions = document.getElementById('suggested-actions');
+                    const actionButtons = document.getElementById('action-buttons');
+                    
+                    if (data.suggested_actions && data.suggested_actions.length > 0) {
+                        suggestedActions.style.display = 'block';
+                        actionButtons.innerHTML = '';
+                        
+                        data.suggested_actions.forEach(action => {
+                            const button = document.createElement('button');
+                            button.className = 'action-button';
+                            button.textContent = action.label;
+                            button.addEventListener('click', () => {
+                                executeAction(action.id, action.label);
+                            });
+                            actionButtons.appendChild(button);
+                        });
+                    }
+                    
+                    showToast('AI assistant replied', 'info');
+                })
+                .catch(error => {
+                    console.error('Error sending message:', error);
+                    
+                    // Remove loading indicator
+                    chatMessages.removeChild(loadingDiv);
+                    
+                    // Add error message
+                    const errorMessageDiv = document.createElement('div');
+                    errorMessageDiv.className = 'system-message error';
+                    errorMessageDiv.innerHTML = '<p>Error sending message. Please try again.</p>';
+                    chatMessages.appendChild(errorMessageDiv);
+                    
+                    // Scroll to bottom
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    
+                    showToast('Error sending message', 'error');
+                });
+            }
+            
+            // Update executeAction to use mock API
+            function executeAction(actionId, actionLabel) {
+                if (!currentTransaction) {
+                    showToast('No transaction selected', 'error');
+                    return;
+                }
+                
+                // Add system message about the action
+                const chatMessages = document.getElementById('chat-messages');
+                const systemMessageDiv = document.createElement('div');
+                systemMessageDiv.className = 'system-message';
+                systemMessageDiv.innerHTML = `<p>Executing action: ${actionLabel}...</p>`;
+                chatMessages.appendChild(systemMessageDiv);
+                
+                // Scroll to bottom
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+                
+                // Use mock API instead of real fetch
+                mockExecuteAction({
+                    transaction_id: currentTransaction.id,
+                    action_id: actionId
+                })
+                .then(data => {
+                    // Add result message
+                    const resultMessageDiv = document.createElement('div');
+                    resultMessageDiv.className = 'system-message';
+                    resultMessageDiv.innerHTML = `<p>${data.message}</p>`;
+                    chatMessages.appendChild(resultMessageDiv);
+                    
+                    // Scroll to bottom
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    
+                    // Update transaction status if needed
+                    if (data.status_updated && data.new_status) {
+                        document.getElementById('modal-decision').textContent = data.new_status;
+                        document.getElementById('modal-decision').className = `risk-decision ${data.new_status.toLowerCase()}`;
+                    }
+                    
+                    showToast(data.message, 'success');
+                })
+                .catch(error => {
+                    console.error('Error executing action:', error);
+                    
+                    // Add error message
+                    const errorMessageDiv = document.createElement('div');
+                    errorMessageDiv.className = 'system-message error';
+                    errorMessageDiv.innerHTML = '<p>Error executing action. Please try again.</p>';
+                    chatMessages.appendChild(errorMessageDiv);
+                    
+                    // Scroll to bottom
+                    chatMessages.scrollTop = chatMessages.scrollHeight;
+                    
+                    showToast('Error executing action', 'error');
+                });
+            }
+            
+            // Add sample transaction data for demo
+            const sampleTransactions = [
+                {
+                    id: 'TX123456789',
+                    user_id: 'USER8765',
+                    amount: 1250.00,
+                    timestamp: new Date().getTime() - 3600000,
+                    device_id: 'DEV98765',
+                    location: { lat: 40.7128, lng: -74.0060 },
+                    risk_score: 85,
+                    decision: 'Blocked',
+                    message: 'High-risk transaction detected. Unusual amount and location.'
+                },
+                {
+                    id: 'TX987654321',
+                    user_id: 'USER5432',
+                    amount: 75.50,
+                    timestamp: new Date().getTime() - 7200000,
+                    device_id: 'DEV12345',
+                    location: { lat: 34.0522, lng: -118.2437 },
+                    risk_score: 25,
+                    decision: 'Allowed',
+                    message: 'Transaction within normal parameters.'
+                },
+                {
+                    id: 'TX456789123',
+                    user_id: 'USER9876',
+                    amount: 350.00,
+                    timestamp: new Date().getTime() - 10800000,
+                    device_id: 'DEV45678',
+                    location: { lat: 41.8781, lng: -87.6298 },
+                    risk_score: 62,
+                    decision: 'Challenged',
+                    message: 'Moderate risk detected. Additional verification required.'
+                }
+            ];
+            
+            // Function to populate transaction table with sample data
+            function populateSampleTransactions() {
+                const tbody = document.getElementById('transactions-body');
+                if (!tbody) return;
+                
+                tbody.innerHTML = '';
+                
+                sampleTransactions.forEach(tx => {
+                    const tr = document.createElement('tr');
+                    
+                    const timeCell = document.createElement('td');
+                    timeCell.textContent = new Date(tx.timestamp).toLocaleString();
+                    
+                    const userCell = document.createElement('td');
+                    userCell.textContent = tx.user_id;
+                    
+                    const amountCell = document.createElement('td');
+                    amountCell.textContent = `$${tx.amount.toFixed(2)}`;
+                    
+                    const riskCell = document.createElement('td');
+                    const riskBadge = document.createElement('span');
+                    riskBadge.className = 'risk-badge';
+                    riskBadge.textContent = tx.risk_score;
+                    if (tx.risk_score < 30) {
+                        riskBadge.classList.add('low');
+                    } else if (tx.risk_score < 70) {
+                        riskBadge.classList.add('medium');
+                    } else {
+                        riskBadge.classList.add('high');
+                    }
+                    riskCell.appendChild(riskBadge);
+                    
+                    const decisionCell = document.createElement('td');
+                    const decisionBadge = document.createElement('span');
+                    decisionBadge.className = 'decision-badge';
+                    decisionBadge.textContent = tx.decision;
+                    decisionBadge.classList.add(tx.decision.toLowerCase());
+                    decisionCell.appendChild(decisionBadge);
+                    
+                    const explanationCell = document.createElement('td');
+                    explanationCell.textContent = tx.message;
+                    
+                    const actionsCell = document.createElement('td');
+                    const viewButton = document.createElement('button');
+                    viewButton.className = 'btn-sm btn-outline';
+                    viewButton.innerHTML = '<i class="fas fa-eye"></i> View';
+                    viewButton.addEventListener('click', () => openTransactionModal(tx));
+                    actionsCell.appendChild(viewButton);
+                    
+                    tr.appendChild(timeCell);
+                    tr.appendChild(userCell);
+                    tr.appendChild(amountCell);
+                    tr.appendChild(riskCell);
+                    tr.appendChild(decisionCell);
+                    tr.appendChild(explanationCell);
+                    tr.appendChild(actionsCell);
+                    
+                    tbody.appendChild(tr);
+                });
+            }
+            
+            // Initialize on page load
+            document.addEventListener('DOMContentLoaded', function() {
+                // Populate sample transactions
+                populateSampleTransactions();
+                
+                // Initialize event listeners for transaction form
+                const transactionForm = document.getElementById('transaction-form');
+                if (transactionForm) {
+                    transactionForm.addEventListener('submit', function(e) {
+                        e.preventDefault();
+                        
+                        // Get form values
+                        const userId = document.getElementById('user-id').value;
+                        const amount = parseFloat(document.getElementById('amount').value);
+                        const deviceId = document.getElementById('device-id').value;
+                        const transactionType = document.getElementById('transaction-type').value;
+                        const latitude = document.getElementById('latitude').value ? parseFloat(document.getElementById('latitude').value) : null;
+                        const longitude = document.getElementById('longitude').value ? parseFloat(document.getElementById('longitude').value) : null;
+                        
+                        // Create mock transaction result
+                        const riskScore = Math.floor(Math.random() * 100);
+                        let decision, message;
+                        
+                        if (riskScore < 30) {
+                            decision = 'Allowed';
+                            message = 'Transaction within normal parameters.';
+                        } else if (riskScore < 70) {
+                            decision = 'Challenged';
+                            message = 'Moderate risk detected. Additional verification required.';
+                        } else {
+                            decision = 'Blocked';
+                            message = 'High-risk transaction detected. Unusual amount and location.';
+                        }
+                        
+                        // Display result
+                        const resultContainer = document.getElementById('result-container');
+                        resultContainer.style.display = 'block';
+                        
+                        // Set risk score in gauge
+                        const scoreText = document.querySelector('.score-text');
+                        const scoreValue = document.querySelector('.score-value');
+                        scoreText.textContent = riskScore;
+                        
+                        // Calculate stroke-dasharray for gauge
+                        const circumference = 2 * Math.PI * 54;
+                        const dashOffset = circumference * (1 - riskScore / 100);
+                        scoreValue.style.strokeDasharray = circumference;
+                        scoreValue.style.strokeDashoffset = dashOffset;
+                        
+                        // Set risk color based on score
+                        if (riskScore < 30) {
+                            scoreValue.style.stroke = 'var(--success-color)';
+                        } else if (riskScore < 70) {
+                            scoreValue.style.stroke = 'var(--warning-color)';
+                        } else {
+                            scoreValue.style.stroke = 'var(--danger-color)';
+                        }
+                        
+                        // Set decision and message
+                        document.querySelector('.result-details .decision').textContent = decision;
+                        document.querySelector('.result-details .decision').className = `value decision ${decision.toLowerCase()}`;
+                        document.querySelector('.result-details .message').textContent = message;
+                        
+                        // Set transaction ID and time
+                        const txId = 'TX' + Math.floor(Math.random() * 1000000000);
+                        document.querySelector('.result-details .transaction-id').textContent = txId;
+                        document.querySelector('.result-details .processed-time').textContent = new Date().toLocaleString();
+                        
+                        // Generate mock feature importance
+                        const featureImportance = {
+                            'Amount': (Math.random() * 0.8 + 0.2) * (Math.random() > 0.5 ? 1 : -1),
+                            'Location': (Math.random() * 0.8 + 0.2) * (Math.random() > 0.5 ? 1 : -1),
+                            'Time of Day': (Math.random() * 0.8 + 0.2) * (Math.random() > 0.5 ? 1 : -1),
+                            'User History': (Math.random() * 0.8 + 0.2) * (Math.random() > 0.5 ? 1 : -1),
+                            'Device': (Math.random() * 0.8 + 0.2) * (Math.random() > 0.5 ? 1 : -1)
+                        };
+                        
+                        // Display feature importance
+                        const featureBars = document.getElementById('result-feature-importance');
+                        featureBars.innerHTML = '';
+                        
+                        Object.entries(featureImportance)
+                            .sort((a, b) => Math.abs(b[1]) - Math.abs(a[1]))
+                            .forEach(([feature, importance]) => {
+                                const barContainer = document.createElement('div');
+                                barContainer.className = 'feature-bar-container';
+                                
+                                const featureLabel = document.createElement('div');
+                                featureLabel.className = 'feature-label';
+                                featureLabel.textContent = feature;
+                                
+                                const barWrapper = document.createElement('div');
+                                barWrapper.className = 'bar-wrapper';
+                                
+                                const bar = document.createElement('div');
+                                bar.className = 'feature-bar';
+                                bar.style.width = `${Math.min(Math.abs(importance) * 100, 100)}%`;
+                                bar.classList.add(importance > 0 ? 'positive' : 'negative');
+                                
+                                const valueLabel = document.createElement('span');
+                                valueLabel.className = 'feature-value';
+                                valueLabel.textContent = importance.toFixed(2);
+                                
+                                barWrapper.appendChild(bar);
+                                barWrapper.appendChild(valueLabel);
+                                
+                                barContainer.appendChild(featureLabel);
+                                barContainer.appendChild(barWrapper);
+                                
+                                featureBars.appendChild(barContainer);
+                            });
+                        
+                        // Add new transaction to sample data
+                        const newTransaction = {
+                            id: txId,
+                            user_id: userId,
+                            amount: amount,
+                            timestamp: new Date().getTime(),
+                            device_id: deviceId,
+                            location: latitude && longitude ? { lat: latitude, lng: longitude } : null,
+                            risk_score: riskScore,
+                            decision: decision,
+                            message: message
+                        };
+                        
+                        sampleTransactions.unshift(newTransaction);
+                        populateSampleTransactions();
+                        
+                        showToast('Transaction processed successfully', 'success');
+                    });
+                }
+                
+                // Initialize random transaction button
+                const randomButton = document.getElementById('random-transaction');
+                if (randomButton) {
+                    randomButton.addEventListener('click', function() {
+                        document.getElementById('user-id').value = 'USER' + Math.floor(Math.random() * 10000);
+                        document.getElementById('amount').value = (Math.random() * 1000 + 10).toFixed(2);
+                        document.getElementById('device-id').value = 'DEV' + Math.floor(Math.random() * 100000);
+                        
+                        const types = ['purchase', 'withdrawal', 'transfer', 'deposit'];
+                        document.getElementById('transaction-type').value = types[Math.floor(Math.random() * types.length)];
+                        
+                        document.getElementById('latitude').value = (Math.random() * 180 - 90).toFixed(6);
+                        document.getElementById('longitude').value = (Math.random() * 360 - 180).toFixed(6);
+                        
+                        showToast('Random transaction generated', 'info');
+                    });
+                }
+                
+                // Initialize close button for result container
+                const closeBtn = document.querySelector('.result-container .close-btn');
+                if (closeBtn) {
+                    closeBtn.addEventListener('click', function() {
+                        document.getElementById('result-container').style.display = 'none';
+                    });
+                }
+                
+                // Initialize modal close buttons
+                const closeModalButtons = document.querySelectorAll('.close-modal, #modal-close');
+                closeModalButtons.forEach(button => {
+                    button.addEventListener('click', function() {
+                        document.getElementById('transaction-modal').classList.remove('show');
+                    });
+                });
+                
+                // Initialize analyze with LLM button
+                const analyzeButton = document.getElementById('analyze-with-llm');
+                if (analyzeButton) {
+                    analyzeButton.addEventListener('click', analyzeWithLLM);
+                }
+                
+                // Initialize chat functionality
+                const sendChatButton = document.getElementById('send-chat');
+                const chatInput = document.getElementById('chat-input');
+                
+                if (sendChatButton && chatInput) {
+                    sendChatButton.addEventListener('click', function() {
+                        const message = chatInput.value.trim();
+                        if (message) {
+                            sendChatMessage(message);
+                        }
+                    });
+                    
+                    chatInput.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            const message = chatInput.value.trim();
+                            if (message) {
+                                sendChatMessage(message);
+                            }
+                        }
+                    });
+                }
+                
+                // Show welcome toast
+                setTimeout(() => {
+                    showToast('Welcome to FraudShield Dashboard', 'info', 5000);
+                }, 1000);
+            });
+        </script>
+</body>
+</html>

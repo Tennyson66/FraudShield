@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FraudShield - Model Retraining</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Removed external CSS reference -->
+    <style>
+        /* Base styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+            color: #333;
+        }
+        
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        /* Sidebar styles */
+        .sidebar {
+            width: 250px;
+            background-color: #2a2a2a;
+            color: #fff;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+            height: 100vh;
+            position: sticky;
+            top: 0;
+        }
+        
+        .sidebar-header {
+            padding: 0 20px;
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: #4cc9f0;
+        }
+        
+        .nav-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .nav-item {
+            margin-bottom: 5px;
+        }
+        
+        .nav-link {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            color: #bbb;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(76, 201, 240, 0.1);
+            color: #4cc9f0;
+        }
+        
+        .nav-link i {
+            margin-right: 10px;
+            font-size: 18px;
+        }
+        
+        .user-info {
+            padding: 15px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: auto;
+        }
+        
+        .user-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        .user-role {
+            font-size: 12px;
+            color: #bbb;
+        }
+        
+        /* Main content styles */
+        .main-content {
+            flex: 1;
+            padding: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        /* Header styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .header-title h2 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .header-time {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        
+        .current-time {
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .current-date {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        /* Section styles */
+        .section {
+            display: none;
+        }
+        
+        .section.active {
+            display: block;
+        }
+        
+        .section-header {
+            margin-bottom: 20px;
+        }
+        
+        .section-header h2 {
+            font-size: 24px;
+            font-weight: 600;
+            color: #333;
+            margin: 0;
+        }
+        
+        /* Model card styles */
+        .model-card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .model-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .model-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .model-status {
+            display: inline-block;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .status-active {
+            background-color: rgba(76, 201, 240, 0.2);
+            color: #0077b6;
+        }
+        
+        .status-archived {
+            background-color: rgba(150, 150, 150, 0.2);
+            color: #555;
+        }
+        
+        /* Model info styles */
+        .model-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        
+        .info-label {
+            font-size: 12px;
+            color: #666;
+        }
+        
+        .info-value {
+            font-size: 14px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        /* Version badge styles */
+        .version-badge {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 15px;
+            background-color: #e0e0e0;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        
+        .current-version {
+            background-color: #4cc9f0;
+            color: white;
+        }
+        
+        /* Button styles */
+        .model-actions {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .model-actions button, .modal-actions button {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 8px 15px;
+            font-size: 14px;
+            font-weight: 500;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: none;
+        }
+        
+        .model-actions i, .modal-actions i {
+            font-size: 14px;
+        }
+        
+        .retrain-btn {
+            background-color: #4cc9f0;
+            color: white;
+        }
+        
+        .retrain-btn:hover {
+            background-color: #3db5db;
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: #4cc9f0;
+            border: 1px solid #4cc9f0;
+        }
+        
+        .btn-outline:hover {
+            background-color: rgba(76, 201, 240, 0.1);
+        }
+        
+        .btn-sm {
+            padding: 4px 8px;
+            font-size: 12px;
+        }
+        
+        .btn-danger {
+            background-color: #f72585;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: #e01e79;
+        }
+        
+        /* Table styles */
+        .version-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            display: block;
+        }
+        
+        .version-table th {
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: left;
+            font-weight: 600;
+            color: #555;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .version-table td {
+            padding: 10px;
+            border-bottom: 1px solid #e0e0e0;
+            color: #333;
+        }
+        
+        .version-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        /* Modal styles */
+        .confirmation-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            width: 400px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .modal-title {
+            font-size: 18px;
+            font-weight: 600;
+        }
+        
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: #666;
+            padding: 0;
+            line-height: 1;
+        }
+        
+        .modal-body {
+            margin-bottom: 20px;
+            color: #444;
+        }
+        
+        .modal-actions {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+        }
+        
+        /* Model comparison styles */
+        .model-comparison {
+            display: flex;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .model-comparison-card {
+            flex: 1;
+            min-width: 250px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 15px;
+        }
+        
+        .model-comparison-card h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 16px;
+            color: #333;
+        }
+        
+        .model-metric {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .model-metric:last-child {
+            border-bottom: none;
+        }
+        
+        .metric-name {
+            font-weight: 500;
+            color: #555;
+        }
+        
+        .metric-value {
+            font-weight: 600;
+            color: #333;
+        }
+        
+        .metric-value.better {
+            color: #4cc9f0;
+        }
+        
+        .metric-value.worse {
+            color: #f72585;
+        }
+        
+        /* Flash message styles */
+        .flash-messages {
+            margin-bottom: 20px;
+        }
+        
+        .flash-message {
+            padding: 10px 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            opacity: 1;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .flash-message.success {
+            background-color: rgba(76, 201, 240, 0.2);
+            border-left: 4px solid #4cc9f0;
+            color: #0077b6;
+        }
+        
+        .flash-message.danger {
+            background-color: rgba(247, 37, 133, 0.2);
+            border-left: 4px solid #f72585;
+            color: #a4133c;
+        }
+        
+        /* Retrain result styles */
+        .retrain-result {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .result-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #333;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .result-timestamp {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .result-content {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+            word-break: break-all;
+        }
+        
+        /* Mobile menu toggle */
+        .menu-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: #333;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .menu-toggle {
+                display: flex;
+                position: fixed;
+                top: 15px;
+                right: 15px;
+                z-index: 1001;
+                background-color: white;
+                border-radius: 50%;
+                width: 40px;
+                height: 40px;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            }
+            
+            .sidebar {
+                position: fixed;
+                left: -250px;
+                width: 250px;
+                height: 100%;
+                z-index: 1000;
+                transition: left 0.3s ease;
+                overflow-y: auto;
+            }
+            
+            .sidebar.active {
+                left: 0;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                padding: 15px;
+                padding-top: 60px;
+            }
+            
+            .model-info {
+                grid-template-columns: 1fr;
+            }
+            
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .header-time {
+                align-items: flex-start;
+            }
+        }
+        
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background-color: #1a1a1a;
+                color: #e0e0e0;
+            }
+            
+            .sidebar {
+                background-color: #2a2a2a;
+            }
+            
+            .header {
+                border-bottom: 1px solid #444;
+            }
+            
+            .section-header h2 {
+                color: #e0e0e0;
+            }
+            
+            .model-card, .retrain-result {
+                background-color: #2a2a2a;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            }
+            
+            .model-title, .info-value, .result-title {
+                color: #e0e0e0;
+            }
+            
+            .info-label, .result-timestamp {
+                color: #bbb;
+            }
+            
+            .model-comparison-card, .result-content {
+                background-color: #333;
+            }
+            
+            .version-table th {
+                background-color: #333;
+                color: #ccc;
+                border-bottom: 2px solid #444;
+            }
+            
+            .version-table td {
+                border-bottom: 1px solid #444;
+                color: #e0e0e0;
+            }
+            
+            .version-table tr:hover {
+                background-color: #3a3a3a;
+            }
+            
+            .modal-content {
+                background-color: #2a2a2a;
+            }
+            
+            .modal-title {
+                color: #e0e0e0;
+            }
+            
+            .modal-body {
+                color: #ccc;
+            }
+            
+            .flash-message.success {
+                background-color: rgba(76, 201, 240, 0.15);
+                color: #6ccff6;
+            }
+            
+            .flash-message.danger {
+                background-color: rgba(247, 37, 133, 0.15);
+                color: #f75f9f;
+            }
+            
+            .menu-toggle {
+                color: #e0e0e0;
+                background-color: #333;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="sidebar-logo">FraudShield</div>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="/" class="nav-link">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('transactions_page') }}" class="nav-link">
+                        <i class="fas fa-exchange-alt"></i> Transactions
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('analytics_page') }}" class="nav-link">
+                        <i class="fas fa-chart-bar"></i> Analytics
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('retrain_page') }}" class="nav-link active">
+                        <i class="fas fa-cogs"></i> Model Retraining
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ url_for('settings_page') }}" class="nav-link">
+                        <i class="fas fa-sliders-h"></i> Settings
+                    </a>
+                </li>
+            </ul>
+            <div class="user-info">
+                <div class="user-name">Admin User</div>
+                <div class="user-role">System Administrator</div>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Header -->
+            <div class="header">
+                <button class="menu-toggle" id="menu-toggle"><i class="fas fa-bars"></i></button>
+                <div class="header-title">
+                    <h2>Model Management</h2>
+                </div>
+                <div class="header-time">
+                    <div id="current-time" class="current-time">--:-- --</div>
+                    <div id="current-date" class="current-date">--- --, ----</div>
+                </div>
+            </div>
+            
+            <!-- Retrain Section -->
+            <div id="retrain" class="section active">
+                <div class="section-header">
+                    <h2>Model Retraining</h2>
+                </div>
+                
+                <!-- Flash Messages -->
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                <div class="flash-messages">
+                    {% for category, message in messages %}
+                    <div class="flash-message {{ category }}">
+                        {% if category == 'success' %}
+                        <i class="fas fa-check-circle"></i>
+                        {% else %}
+                        <i class="fas fa-exclamation-circle"></i>
+                        {% endif %}
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                </div>
+                {% endif %}
+                {% endwith %}
+                
+                <!-- Retrain Form -->
+                <div class="retrain-form">
+                    <div class="model-card">
+                        <div class="model-header">
+                            <div class="model-title">Retrain Fraud Detection Models</div>
+                        </div>
+                        <p>Retrain the fraud detection models with the latest feedback data to improve detection accuracy.</p>
+                        <form method="POST">
+                            <div class="model-actions">
+                                <button type="submit" name="retrain" class="retrain-btn">
+                                    <i class="fas fa-sync-alt"></i> Start Retraining
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Retraining Result -->
+                {% if result %}
+                <div class="retrain-result">
+                    <div class="result-header">
+                        <div class="result-title">
+                            {% if result.success %}
+                            <i class="fas fa-check-circle" style="color: #4cc9f0;"></i> Retraining Completed Successfully
+                            {% else %}
+                            <i class="fas fa-exclamation-circle" style="color: #f72585;"></i> Retraining Failed
+                            {% endif %}
+                        </div>
+                        <div class="result-timestamp">{{ result.timestamp }}</div>
+                    </div>
+                    <div class="result-content">
+                        {% if result.success %}
+                        {{ result.output }}
+                        {% else %}
+                        Error: {{ result.error }}
+                        {% endif %}
+                    </div>
+                </div>
+                {% endif %}
+                
+                <!-- Current Models -->
+                <div class="section-header">
+                    <h2>Current Active Models</h2>
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-header">
+                        <div class="model-title">Supervised Model (Random Forest)</div>
+                        <div class="model-status status-active">Active</div>
+                    </div>
+                    {% if models.current.supervised %}
+                    <div class="model-info">
+                        <div class="info-item">
+                            <div class="info-label">File Size</div>
+                            <div class="info-value">{{ models.current.supervised.size }}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Last Modified</div>
+                            <div class="info-value">{{ models.current.supervised.modified }}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Path</div>
+                            <div class="info-value" style="font-size: 12px;">{{ models.current.supervised.path }}</div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <p>No active supervised model found.</p>
+                    {% endif %}
+                </div>
+                
+                <div class="model-card">
+                    <div class="model-header">
+                        <div class="model-title">Anomaly Detection Model (Isolation Forest)</div>
+                        <div class="model-status status-active">Active</div>
+                    </div>
+                    {% if models.current.anomaly %}
+                    <div class="model-info">
+                        <div class="info-item">
+                            <div class="info-label">File Size</div>
+                            <div class="info-value">{{ models.current.anomaly.size }}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Last Modified</div>
+                            <div class="info-value">{{ models.current.anomaly.modified }}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Path</div>
+                            <div class="info-value" style="font-size: 12px;">{{ models.current.anomaly.path }}</div>
+                        </div>
+                    </div>
+                    {% else %}
+                    <p>No active anomaly detection model found.</p>
+                    {% endif %}
+                </div>
+                
+                <!-- Model Versions -->
+                <div class="model-versions">
+                    <div class="section-header">
+                        <h2>Model Version History</h2>
+                    </div>
+                    
+                    {% if models.versions %}
+                    <table class="version-table">
+                        <thead>
+                            <tr>
+                                <th>Version</th>
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Supervised Model Size</th>
+                                <th>Anomaly Model Size</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for version in models.versions %}
+                            <tr>
+                                <td><span class="version-badge {% if version.is_current %}current-version{% endif %}">{{ version.version }}</span></td>
+                                <td>{{ version.date }}</td>
+                                <td>{{ version.time }}</td>
+                                <td>{{ version.supervised_size }}</td>
+                                <td>{{ version.anomaly_size }}</td>
+                                <td>{% if version.is_current %}<span class="model-status status-active">Current</span>{% else %}<span class="model-status status-archived">Archived</span>{% endif %}</td>
+                                <td>
+                                    <div class="model-actions">
+                                        {% if not version.is_current %}
+                                        <form method="POST" style="display: inline;">
+                                            <input type="hidden" name="version" value="{{ version.version }}">
+                                            <button type="submit" name="activate" class="btn-outline btn-sm" title="Activate this model version">
+                                                <i class="fas fa-check-circle"></i> Activate
+                                            </button>
+                                        </form>
+                                        {% endif %}
+                                        <button class="btn-outline btn-sm compare-btn" data-version="{{ version.version }}" title="Compare with current model">
+                                            <i class="fas fa-balance-scale"></i> Compare
+                                        </button>
+                                        <button class="btn-outline btn-sm download-btn" data-version="{{ version.version }}" title="Download model files">
+                                            <i class="fas fa-download"></i> Download
+                                        </button>
+                                        <button class="btn-outline btn-sm delete-btn" data-version="{{ version.version }}" title="Delete this model version">
+                                            <i class="fas fa-trash"></i> Delete
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                    {% else %}
+                    <div class="model-card">
+                        <p>No model versions found in history.</p>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Confirmation Modal -->
+    <div id="confirmation-modal" class="confirmation-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="modal-title">Confirm Action</div>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <p id="modal-message">Are you sure you want to proceed with this action?</p>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-outline" id="modal-cancel">Cancel</button>
+                <button class="retrain-btn" id="modal-confirm">Confirm</button>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Model Comparison Modal -->
+    <div id="comparison-modal" class="confirmation-modal">
+        <div class="modal-content" style="width: 700px;">
+            <div class="modal-header">
+                <div class="modal-title">Model Comparison</div>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="model-comparison">
+                    <div class="model-comparison-card">
+                        <h3>Current Model</h3>
+                        <div id="current-model-metrics">
+                            <div class="model-metric">
+                                <div class="metric-name">Accuracy</div>
+                                <div class="metric-value">0.95</div>
+                            </div>
+                            <div class="model-metric">
+                                <div class="metric-name">AUC-ROC</div>
+                                <div class="metric-value">0.98</div>
+                            </div>
+                            <div class="model-metric">
+                                <div class="metric-name">Precision</div>
+                                <div class="metric-value">0.92</div>
+                            </div>
+                            <div class="model-metric">
+                                <div class="metric-name">Recall</div>
+                                <div class="metric-value">0.89</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="model-comparison-card">
+                        <h3>Selected Model</h3>
+                        <div id="selected-model-metrics">
+                            <div class="model-metric">
+                                <div class="metric-name">Accuracy</div>
+                                <div class="metric-value better">0.96</div>
+                            </div>
+                            <div class="model-metric">
+                                <div class="metric-name">AUC-ROC</div>
+                                <div class="metric-value better">0.99</div>
+                            </div>
+                            <div class="model-metric">
+                                <div class="metric-name">Precision</div>
+                                <div class="metric-value worse">0.91</div>
+                            </div>
+                            <div class="model-metric">
+                                <div class="metric-name">Recall</div>
+                                <div class="metric-value better">0.94</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div style="margin-top: 15px; text-align: center;">
+                    <p id="comparison-recommendation" style="font-weight: 500; color: #4cc9f0;">
+                        The selected model shows overall better performance and is recommended for activation.
+                    </p>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-outline" id="comparison-close">Close</button>
+                <form method="POST" style="display: inline;">
+                    <input type="hidden" name="version" id="activate-version" value="">
+                    <button type="submit" name="activate" class="retrain-btn">Activate Selected Model</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Update current time
+        function updateTime() {
+            const now = new Date();
+            const timeEl = document.getElementById('current-time');
+            const dateEl = document.getElementById('current-date');
+            if (timeEl) {
+                timeEl.textContent = now.toLocaleTimeString('en-US', {
+                    hour: '2-digit',
+                    minute: '2-digit'
+                });
+            }
+            if (dateEl) {
+                dateEl.textContent = now.toLocaleDateString('en-US', {
+                    month: 'short',
+                    day: 'numeric',
+                    year: 'numeric'
+                });
+            }
+        }
+
+        // Update time every second
+        setInterval(updateTime, 1000);
+        updateTime(); // Initial call
+
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const sidebar = document.querySelector('.sidebar');
+        if (menuToggle && sidebar) {
+            menuToggle.addEventListener('click', function() {
+                sidebar.classList.toggle('active');
+            });
+        }
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', function(event) {
+            if (sidebar && sidebar.classList.contains('active') && window.innerWidth <= 768) {
+                const isClickInsideSidebar = sidebar.contains(event.target);
+                const isClickOnToggle = menuToggle ? menuToggle.contains(event.target) : false;
+                if (!isClickInsideSidebar && !isClickOnToggle) {
+                    sidebar.classList.remove('active');
+                }
+            }
+        });
+
+        // Modal functionality
+        const confirmationModal = document.getElementById('confirmation-modal');
+        const comparisonModal = document.getElementById('comparison-modal');
+        const modalCloseButtons = document.querySelectorAll('.modal-close');
+        const modalCancelButton = document.getElementById('modal-cancel');
+        const modalConfirmButton = document.getElementById('modal-confirm');
+        const comparisonCloseButton = document.getElementById('comparison-close');
+        const modalMessageElement = document.getElementById('modal-message');
+
+        function closeModal(modal) {
+            if (modal) {
+                modal.style.display = 'none';
+            }
+        }
+
+        function openModal(modal) {
+            if (modal) {
+                modal.style.display = 'flex';
+            }
+        }
+
+        // Close modals using close buttons
+        modalCloseButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                closeModal(confirmationModal);
+                closeModal(comparisonModal);
+            });
+        });
+
+        // Close confirmation modal with cancel button
+        if (modalCancelButton) {
+            modalCancelButton.addEventListener('click', function() {
+                closeModal(confirmationModal);
+            });
+        }
+
+        // Close comparison modal with its close button
+        if (comparisonCloseButton) {
+            comparisonCloseButton.addEventListener('click', function() {
+                closeModal(comparisonModal);
+            });
+        }
+
+        // Close modals when clicking outside the content
+        window.addEventListener('click', function(event) {
+            if (event.target === confirmationModal) {
+                closeModal(confirmationModal);
+            }
+            if (event.target === comparisonModal) {
+                closeModal(comparisonModal);
+            }
+        });
+
+        // Delete model version
+        const deleteButtons = document.querySelectorAll('.delete-btn');
+        deleteButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const version = this.getAttribute('data-version');
+                if (modalMessageElement) {
+                    modalMessageElement.textContent = `Are you sure you want to delete model version ${version}? This action cannot be undone.`;
+                }
+                if (modalConfirmButton) {
+                    modalConfirmButton.className = 'retrain-btn btn-danger'; // Ensure correct classes
+
+                    // Clone and replace to remove previous listeners
+                    const newConfirmButton = modalConfirmButton.cloneNode(true);
+                    modalConfirmButton.parentNode.replaceChild(newConfirmButton, modalConfirmButton);
+
+                    newConfirmButton.addEventListener('click', function() {
+                        // Create a form and submit it
+                        const form = document.createElement('form');
+                        form.method = 'POST';
+                        form.style.display = 'none';
+
+                        const versionInput = document.createElement('input');
+                        versionInput.type = 'hidden';
+                        versionInput.name = 'version';
+                        versionInput.value = version;
+
+                        const actionInput = document.createElement('input');
+                        actionInput.type = 'hidden';
+                        actionInput.name = 'delete';
+                        actionInput.value = 'true';
+
+                        form.appendChild(versionInput);
+                        form.appendChild(actionInput);
+                        document.body.appendChild(form);
+                        form.submit();
+                    });
+                }
+                openModal(confirmationModal);
+            });
+        });
+
+        // Compare models
+        const compareButtons = document.querySelectorAll('.compare-btn');
+        compareButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const version = this.getAttribute('data-version');
+                const activateVersionInput = document.getElementById('activate-version');
+                if (activateVersionInput) {
+                    activateVersionInput.value = version;
+                }
+
+                // Fetch comparison data (replace with actual fetch logic)
+                fetch(`/api/model-comparison?version=${version}`)
+                    .then(response => {
+                        if (!response.ok) {
+                            throw new Error(`HTTP error! status: ${response.status}`);
+                        }
+                        return response.json();
+                    })
+                    .then(data => {
+                        console.log('Comparison data:', data);
+                        // Update comparison modal content here based on 'data'
+                        // Example: updateMetrics(data.current, data.selected);
+                        openModal(comparisonModal);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching comparison data:', error);
+                        // Optionally show an error message to the user
+                        alert('Could not load comparison data.');
+                    });
+            });
+        });
+
+        // Download model
+        const downloadButtons = document.querySelectorAll('.download-btn');
+        downloadButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const version = this.getAttribute('data-version');
+                window.location.href = `/download-model?version=${version}`;
+            });
+        });
+
+        // Flash message auto-dismiss
+        setTimeout(function() {
+            const flashMessages = document.querySelectorAll('.flash-message');
+            flashMessages.forEach(message => {
+                message.style.opacity = '0';
+                // Remove the element after the transition completes
+                message.addEventListener('transitionend', () => message.remove());
+            });
+        }, 5000); // 5 seconds
+    </script>
+</body>
+</html>

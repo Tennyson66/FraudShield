@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FraudShield Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css">
+    <link rel="stylesheet" href="/static/css/dashboard.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <i class="fas fa-shield-alt"></i>
+                    <h1>FraudShield</h1>
+                </div>
+                <button id="toggle-sidebar" class="toggle-sidebar">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="sidebar-content">
+                <div class="user-info">
+                    <div class="user-avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div class="user-details">
+                        <h3>John Doe</h3>
+                        <p>Fraud Analyst</p>
+                    </div>
+                </div>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li>
+                            <a href="#" class="nav-link active" data-target="dashboard-section">
+                                <i class="fas fa-tachometer-alt"></i>
+                                <span>Dashboard</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link" data-target="transactions-section">
+                                <i class="fas fa-exchange-alt"></i>
+                                <span>Transactions</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link" data-target="analytics-section">
+                                <i class="fas fa-chart-line"></i>
+                                <span>Analytics</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link" data-target="ai-section">
+                                <i class="fas fa-robot"></i>
+                                <span>AI Analysis</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link" data-target="settings-section">
+                                <i class="fas fa-cog"></i>
+                                <span>Settings</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-footer">
+                <div class="date-time">
+                    <div id="current-date">Monday, January 1, 2023</div>
+                    <div id="current-time">12:00:00 PM</div>
+                </div>
+                <a href="#" class="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Dashboard Section -->
+            <div id="dashboard-section" class="dashboard-section active">
+                <div class="section-header">
+                    <h2>Fraud Detection Dashboard</h2>
+                    <div class="header-actions">
+                        <div class="search-container">
+                            <input type="text" id="search-input" placeholder="Search transactions...">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <button id="export-btn" class="btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            Export
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Stats Cards -->
+                <div class="stats-container">
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-exchange-alt"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h3>Total Transactions</h3>
+                            <p id="total-transactions">0</p>
+                        </div>
+                        <div class="stats-trend up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>12%</span>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h3>Fraud Attempts</h3>
+                            <p id="fraud-attempts">0</p>
+                        </div>
+                        <div class="stats-trend down">
+                            <i class="fas fa-arrow-down"></i>
+                            <span>5%</span>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h3>Fraud Prevention</h3>
+                            <p id="fraud-prevention">0%</p>
+                        </div>
+                        <div class="stats-trend up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>8%</span>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-dollar-sign"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h3>Amount Saved</h3>
+                            <p id="amount-saved">$0</p>
+                        </div>
+                        <div class="stats-trend up">
+                            <i class="fas fa-arrow-up"></i>
+                            <span>15%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Charts -->
+                <div class="charts-container">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Fraud Detection Trend</h3>
+                            <div class="chart-actions">
+                                <button class="btn btn-sm active">Day</button>
+                                <button class="btn btn-sm">Week</button>
+                                <button class="btn btn-sm">Month</button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="fraud-trend-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Risk Distribution</h3>
+                            <div class="chart-actions">
+                                <button class="btn btn-sm active">All</button>
+                                <button class="btn btn-sm">Blocked</button>
+                                <button class="btn btn-sm">Allowed</button>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="risk-distribution-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Recent Transactions -->
+                <div class="recent-transactions">
+                    <div class="section-header">
+                        <h3>Recent Transactions</h3>
+                        <a href="#" class="view-all" data-target="transactions-section">View All</a>
+                    </div>
+                    <div class="transactions-table-container">
+                        <table class="transactions-table">
+                            <thead>
+                                <tr>
+                                    <th data-sort="timestamp">Time <i class="fas fa-sort"></i></th>
+                                    <th data-sort="user">User ID <i class="fas fa-sort"></i></th>
+                                    <th data-sort="amount">Amount <i class="fas fa-sort"></i></th>
+                                    <th data-sort="risk">Risk Score <i class="fas fa-sort"></i></th>
+                                    <th data-sort="decision">Decision <i class="fas fa-sort"></i></th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="transactions-table-body">
+                                <!-- Transactions will be added here dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="pagination">
+                        <button id="prev-page" class="pagination-btn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <span id="page-info">Page 1 of 1</span>
+                        <button id="next-page" class="pagination-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Transactions Section -->
+            <div id="transactions-section" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Transactions</h2>
+                    <div class="header-actions">
+                        <div class="search-container">
+                            <input type="text" id="search-input-transactions" placeholder="Search transactions...">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <button id="export-btn-transactions" class="btn btn-primary">
+                            <i class="fas fa-download"></i>
+                            Export
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Filters -->
+                <div class="filters-container">
+                    <div class="filter-group">
+                        <label>Amount Range</label>
+                        <div class="filter-inputs">
+                            <input type="number" id="min-amount" class="filter-input" placeholder="Min">
+                            <span>to</span>
+                            <input type="number" id="max-amount" class="filter-input" placeholder="Max">
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <label>Risk Score</label>
+                        <div class="filter-inputs">
+                            <input type="number" id="min-risk" class="filter-input" placeholder="Min">
+                            <span>to</span>
+                            <input type="number" id="max-risk" class="filter-input" placeholder="Max">
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <label>Date Range</label>
+                        <div class="filter-inputs">
+                            <input type="date" id="start-date" class="filter-input">
+                            <span>to</span>
+                            <input type="date" id="end-date" class="filter-input">
+                        </div>
+                    </div>
+                    <div class="filter-group">
+                        <label>Decision</label>
+                        <div class="filter-checkboxes">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="decision-allow" class="filter-input" checked>
+                                <span>Allow</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="decision-challenge" class="filter-input" checked>
+                                <span>Challenge</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="decision-block" class="filter-input" checked>
+                                <span>Block</span>
+                            </label>
+                        </div>
+                    </div>
+                    <button id="reset-filters" class="btn btn-secondary">
+                        <i class="fas fa-undo"></i>
+                        Reset Filters
+                    </button>
+                </div>
+                
+                <!-- Transactions Table -->
+                <div class="transactions-table-container">
+                    <table class="transactions-table">
+                        <thead>
+                            <tr>
+                                <th data-sort="timestamp">Time <i class="fas fa-sort"></i></th>
+                                <th data-sort="user">User ID <i class="fas fa-sort"></i></th>
+                                <th data-sort="amount">Amount <i class="fas fa-sort"></i></th>
+                                <th data-sort="risk">Risk Score <i class="fas fa-sort"></i></th>
+                                <th data-sort="decision">Decision <i class="fas fa-sort"></i></th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="transactions-table-body-full">
+                            <!-- Transactions will be added here dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+                <div class="pagination">
+                    <button id="prev-page-full" class="pagination-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <span id="page-info-full">Page 1 of 1</span>
+                    <button id="next-page-full" class="pagination-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Analytics Section -->
+            <div id="analytics-section" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Analytics</h2>
+                    <div class="header-actions">
+                        <div class="date-range-picker">
+                            <button class="btn btn-sm active">Today</button>
+                            <button class="btn btn-sm">Week</button>
+                            <button class="btn btn-sm">Month</button>
+                            <button class="btn btn-sm">Year</button>
+                            <button class="btn btn-sm">
+                                <i class="fas fa-calendar"></i>
+                                Custom
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Analytics Charts -->
+                <div class="analytics-charts">
+                    <div class="chart-card full-width">
+                        <div class="chart-header">
+                            <h3>Transaction Volume & Fraud Rate</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="volume-fraud-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Fraud by Transaction Type</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="fraud-by-type-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Geographical Distribution</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="geo-distribution-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Time of Day Analysis</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="time-analysis-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Device Distribution</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="device-distribution-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI Analysis Section -->
+            <div id="ai-section" class="dashboard-section">
+                <div class="section-header">
+                    <h2>AI Analysis</h2>
+                    <div class="header-actions">
+                        <button class="btn btn-primary">
+                            <i class="fas fa-sync-alt"></i>
+                            Refresh Model
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- AI Stats -->
+                <div class="stats-container">
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-bullseye"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h3>AI Accuracy</h3>
+                            <p id="ai-accuracy">94.2%</p>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h3>False Positives</h3>
+                            <p id="ai-false-positives">3.8%</p>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h3>Avg. Processing Time</h3>
+                            <p id="ai-processing-time">0.8s</p>
+                        </div>
+                    </div>
+                    <div class="stats-card">
+                        <div class="stats-icon">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="stats-info">
+                            <h3>Cases Analyzed</h3>
+                            <p id="ai-cases-analyzed">0</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI Charts -->
+                <div class="charts-container">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>AI Insights</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="ai-insights-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Model Performance</h3>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="ai-performance-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- AI Fraud Patterns -->
+                <div class="ai-patterns">
+                    <div class="section-header">
+                        <h3>Detected Fraud Patterns</h3>
+                    </div>
+                    <div class="patterns-container">
+                        <div class="pattern-card">
+                            <div class="pattern-header">
+                                <h4>Device Spoofing</h4>
+                                <span class="pattern-score high">High Risk</span>
+                            </div>
+                            <p>Multiple transactions from different locations using the same device ID within a short time period.</p>
+                            <div class="pattern-stats">
+                                <div class="pattern-stat">
+                                    <span>Occurrences</span>
+                                    <strong>24</strong>
+                                </div>
+                                <div class="pattern-stat">
+                                    <span>Success Rate</span>
+                                    <strong>92%</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pattern-card">
+                            <div class="pattern-header">
+                                <h4>Velocity Attack</h4>
+                                <span class="pattern-score high">High Risk</span>
+                            </div>
+                            <p>Rapid succession of transactions with increasing amounts to test card validity.</p>
+                            <div class="pattern-stats">
+                                <div class="pattern-stat">
+                                    <span>Occurrences</span>
+                                    <strong>18</strong>
+                                </div>
+                                <div class="pattern-stat">
+                                    <span>Success Rate</span>
+                                    <strong>88%</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pattern-card">
+                            <div class="pattern-header">
+                                <h4>Unusual Location</h4>
+                                <span class="pattern-score medium">Medium Risk</span>
+                            </div>
+                            <p>Transactions from locations significantly different from user's normal patterns.</p>
+                            <div class="pattern-stats">
+                                <div class="pattern-stat">
+                                    <span>Occurrences</span>
+                                    <strong>42</strong>
+                                </div>
+                                <div class="pattern-stat">
+                                    <span>Success Rate</span>
+                                    <strong>76%</strong>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pattern-card">
+                            <div class="pattern-header">
+                                <h4>Amount Anomaly</h4>
+                                <span class="pattern-score medium">Medium Risk</span>
+                            </div>
+                            <p>Transaction amounts that significantly deviate from the user's historical spending patterns.</p>
+                            <div class="pattern-stats">
+                                <div class="pattern-stat">
+                                    <span>Occurrences</span>
+                                    <strong>36</strong>
+                                </div>
+                                <div class="pattern-stat">
+                                    <span>Success Rate</span>
+                                    <strong>81%</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Settings Section -->
+            <div id="settings-section" class="dashboard-section">
+                <div class="section-header">
+                    <h2>Settings</h2>
+                </div>
+                
+                <div class="settings-container">
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>User Preferences</h3>
+                        </div>
+                        <div class="settings-content">
+                            <div class="settings-group">
+                                <label>Theme</label>
+                                <div class="settings-options">
+                                    <label class="radio-label">
+                                        <input type="radio" name="theme" value="dark" checked>
+                                        <span>Dark</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="theme" value="light">
+                                        <span>Light</span>
+                                    </label>
+                                    <label class="radio-label">
+                                        <input type="radio" name="theme" value="system">
+                                        <span>System Default</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="settings-group">
+                                <label>Notifications</label>
+                                <div class="settings-options">
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <span>Enable Notifications</span>
+                                </div>
+                            </div>
+                            <div class="settings-group">
+                                <label>Email Alerts</label>
+                                <div class="settings-options">
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <span>Send Email Alerts</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>AI Settings</h3>
+                        </div>
+                        <div class="settings-content">
+                            <div class="settings-group">
+                                <label>AI Analysis</label>
+                                <div class="settings-options">
+                                    <label class="switch">
+                                        <input type="checkbox" checked>
+                                        <span class="slider round"></span>
+                                    </label>
+                                    <span>Enable AI Analysis</span>
+                                </div>
+                            </div>
+                            <div class="settings-group">
+                                <label>Risk Threshold</label>
+                                <div class="settings-options">
+                                    <input type="range" min="0" max="100" value="75" class="slider" id="risk-threshold">
+                                    <span id="risk-threshold-value">75</span>
+                                </div>
+                            </div>
+                            <div class="settings-group">
+                                <label>Model Selection</label>
+                                <div class="settings-options">
+                                    <select id="model-selection" class="settings-select">
+                                        <option value="standard">Standard (Default)</option>
+                                        <option value="aggressive">Aggressive</option>
+                                        <option value="conservative">Conservative</option>
+                                        <option value="custom">Custom</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="settings-card">
+                        <div class="settings-header">
+                            <h3>API Integration</h3>
+                        </div>
+                        <div class="settings-content">
+                            <div class="settings-group">
+                                <label>API Key</label>
+                                <div class="settings-options">
+                                    <input type="password" value="••••••••••••••••" class="settings-input">
+                                    <button class="btn btn-sm">Show</button>
+                                </div>
+                            </div>
+                            <div class="settings-group">
+                                <label>Webhook URL</label>
+                                <div class="settings-options">
+                                    <input type="text" value="https://api.example.com/webhook" class="settings-input">
+                                </div>
+                            </div>
+                            <div class="settings-group">
+                                <label>Integration Status</label>
+                                <div class="settings-options">
+                                    <span class="status-badge active">Active</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="settings-actions">
+                    <button class="btn btn-secondary">Cancel</button>
+                    <button class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Transaction Modal -->
+    <div id="transaction-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Transaction Details</h2>
+                <button class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="modal-tabs">
+                    <button id="tab-overview" class="tab-button active" data-tab="tab-overview-content">Overview</button>
+                    <button id="tab-details" class="tab-button" data-tab="tab-details-content">Details</button>
+                    <button id="tab-map" class="tab-button" data-tab="tab-map-content">Map</button>
+                    <button id="tab-ai" class="tab-button" data-tab="tab-ai-content">AI Analysis</button>
+                </div>
+                
+                <div class="tab-content-container">
+                    <!-- Overview Tab -->
+                    <div id="tab-overview-content" class="tab-content active">
+                        <div class="transaction-overview">
+                            <div class="transaction-header">
+                                <div class="transaction-id">
+                                    <h3>Transaction ID: <span id="modal-transaction-id">--</span></h3>
+                                    <span id="modal-transaction-time">--</span>
+                                </div>
+                                <div class="transaction-status" id="modal-transaction-status">
+                                    <!-- Status will be added dynamically -->
+                                </div>
+                            </div>
+                            
+                            <div class="transaction-summary">
+                                <div class="summary-item">
+                                    <span class="summary-label">Amount</span>
+                                    <span class="summary-value" id="modal-transaction-amount">--</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">User ID</span>
+                                    <span class="summary-value" id="modal-transaction-user">--</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Risk Score</span>
+                                    <span class="summary-value" id="modal-transaction-risk">--</span>
+                                </div>
+                                <div class="summary-item">
+                                    <span class="summary-label">Location</span>
+                                    <span class="summary-value" id="modal-transaction-location">--</span>
+                                </div>
+                            </div>
+                            
+                            <div class="risk-indicators">
+                                <h4>Risk Indicators</h4>
+                                <div class="indicators-container" id="modal-risk-indicators">
+                                    <!-- Risk indicators will be added dynamically -->
+                                </div>
+                            </div>
+                            
+                            <div class="transaction-actions">
+                                <button class="btn btn-success" id="approve-transaction">
+                                    <i class="fas fa-check"></i>
+                                    Approve
+                                </button>
+                                <button class="btn btn-warning" id="flag-transaction">
+                                    <i class="fas fa-flag"></i>
+                                    Flag for Review
+                                </button>
+                                <button class="btn btn-danger" id="block-transaction">
+                                    <i class="fas fa-ban"></i>
+                                    Block
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Details Tab -->
+                    <div id="tab-details-content" class="tab-content">
+                        <div class="transaction-details">
+                            <div class="details-section">
+                                <h4>Transaction Information</h4>
+                                <div class="details-grid">
+                                    <div class="details-item">
+                                        <span class="details-label">Transaction Type</span>
+                                        <span class="details-value" id="modal-transaction-type">--</span>
+                                    </div>
+                                    <div class="details-item">
+                                        <span class="details-label">Payment Method</span>
+                                        <span class="details-value" id="modal-payment-method">--</span>
+                                    </div>
+                                    <div class="details-item">
+                                        <span class="details-label">Currency</span>
+                                        <span class="details-value" id="modal-currency">--</span>
+                                    </div>
+                                    <div class="details-item">
+                                        <span class="details-label">Status</span>
+                                        <span class="details-value" id="modal-status">--</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="details-section">
+                                <h4>User Information</h4>
+                                <div class="details-grid">
+                                    <div class="details-item">
+                                        <span class="details-label">User Since</span>
+                                        <span class="details-value" id="modal-user-since">--</span>
+                                    </div>
+                                    <div class="details-item">
+                                        <span class="details-label">Previous Transactions</span>
+                                        <span class="details-value" id="modal-previous-transactions">--</span>
+                                    </div>
+                                    <div class="details-item">
+                                        <span class="details-label">Account Type</span>
+                                        <span class="details-value" id="modal-account-type">--</span>
+                                    </div>
+                                    <div class="details-item">
+                                        <span class="details-label">Verification Status</span>
+                                        <span class="details-value" id="modal-verification-status">--</span>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="details-section">
+                                <h4>Device Information</h4>
+                                <div class="details-grid">
+                                    <div class="details-item">
+                                        <span class="details-label">Device ID</span>
+                                        <span class="details-value" id="modal-device-id">--</span>
+                                    </div>
+                                    <div class="details-item">
+                                        <span class="details-label">Device Type</span>
+                                        <span class="details-value" id="modal-device-type">--</span>
+                                    </div>
+                                    <div class="details-item">
+                                        <span class="details-label">IP Address</span>
+                                        <span class="details-value" id="modal-ip-address">--</span>
+                                    </div>
+                                    <div class="details-item">
+                                        <span class="details-label">Browser</span>
+                                        <span class="details-value" id="modal-browser">--</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Map Tab -->
+                    <div id="tab-map-content" class="tab-content">
+                        <div class="map-container">
+                            <div id="modal-map" class="transaction-map"></div>
+                            <div class="map-details">
+                                <div class="map-detail-item">
+                                    <span class="map-detail-label">Current Location</span>
+                                    <span class="map-detail-value" id="modal-current-location">--</span>
+                                </div>
+                                <div class="map-detail-item">
+                                    <span class="map-detail-label">Usual Location</span>
+                                    <span class="map-detail-value" id="modal-usual-location">--</span>
+                                </div>
+                                <div class="map-detail-item">
+                                    <span class="map-detail-label">Distance</span>
+                                    <span class="map-detail-value" id="modal-distance">--</span>
+                                </div>
+                                <div class="map-detail-item">
+                                    <span class="map-detail-label">Location Risk</span>
+                                    <span class="map-detail-value" id="modal-location-risk">--</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AI Analysis Tab -->
+                    <div id="tab-ai-content" class="tab-content">
+                        <div class="ai-analysis-container">
+                            <div class="ai-summary">
+                                <h4>AI Risk Assessment</h4>
+                                <div class="ai-risk-score">
+                                    <div class="risk-gauge" id="modal-risk-gauge">
+                                        <!-- Risk gauge will be added dynamically -->
+                                    </div>
+                                    <div class="risk-explanation">
+                                        <p id="modal-risk-explanation">The AI is analyzing this transaction...</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="ai-factors">
+                                    <h4>Key Risk Factors</h4>
+                                    <div class="factors-container" id="modal-risk-factors">
+                                        <!-- Risk factors will be added dynamically -->
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="ai-chat">
+                                <h4>Ask AI Assistant</h4>
+                                <div class="chat-container">
+                                    <div id="ai-chat-container" class="chat-messages">
+                                        <!-- Chat messages will be added dynamically -->
+                                    </div>
+                                    <div class="chat-input-container">
+                                        <input type="text" id="ai-chat-input" placeholder="Ask about this transaction...">
+                                        <button id="ai-chat-send" class="btn btn-primary">
+                                            <i class="fas fa-paper-plane"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <script src="/static/js/dashboard.js"></script>
+</body>
+</html>

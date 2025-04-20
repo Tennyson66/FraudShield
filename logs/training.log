@@ -1,0 +1,58 @@
+2025-04-17 05:54:33,104 - INFO - Generating sample data...
+2025-04-17 05:54:33,392 - INFO - Training supervised model (Random Forest)...
+2025-04-17 05:54:39,171 - INFO - Cross-validation AUC-ROC scores: [0.98514286 0.97222857 0.9896381  0.98346667 0.99384224]
+2025-04-17 05:54:39,171 - INFO - Mean CV AUC-ROC: 0.9849
+2025-04-17 05:54:40,769 - INFO - 
+Random Forest Performance:
+2025-04-17 05:54:40,769 - INFO - Accuracy: 0.9950
+2025-04-17 05:54:40,769 - INFO - AUC-ROC: 0.9652
+2025-04-17 05:54:40,769 - INFO - Average Precision: 0.8157
+2025-04-17 05:54:40,779 - INFO - 
+Classification Report:
+2025-04-17 05:54:40,785 - INFO -               precision    recall  f1-score   support
+
+           0       0.99      1.00      1.00      1977
+           1       1.00      0.57      0.72        23
+
+    accuracy                           0.99      2000
+   macro avg       1.00      0.78      0.86      2000
+weighted avg       1.00      0.99      0.99      2000
+
+2025-04-17 05:54:42,010 - INFO - 
+Feature Importances:
+2025-04-17 05:54:42,010 - INFO -                 Feature  Importance
+8  Location Familiarity    0.201474
+6    Device Familiarity    0.198357
+0           Hour of Day    0.147864
+1    Transaction Amount    0.117988
+2  Transaction Velocity    0.078905
+4      Amount Deviation    0.069686
+7     Amount Percentile    0.061549
+3        Geo Difference    0.060380
+9       Time Since Last    0.054642
+5            Is Weekend    0.009156
+2025-04-17 05:54:42,208 - INFO - 
+Training alternative model (Gradient Boosting)...
+2025-04-17 05:54:45,105 - INFO - 
+Gradient Boosting Performance:
+2025-04-17 05:54:45,105 - INFO - Accuracy: 0.9940
+2025-04-17 05:54:45,105 - INFO - AUC-ROC: 0.9869
+2025-04-17 05:54:45,105 - INFO - Average Precision: 0.7902
+2025-04-17 05:54:45,105 - INFO - 
+Classification Report:
+2025-04-17 05:54:45,119 - INFO -               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      1977
+           1       0.79      0.65      0.71        23
+
+    accuracy                           0.99      2000
+   macro avg       0.89      0.83      0.86      2000
+weighted avg       0.99      0.99      0.99      2000
+
+2025-04-17 05:54:45,191 - INFO - 
+Best model: Gradient Boosting with AUC-ROC: 0.9869
+2025-04-17 05:54:45,191 - INFO - 
+Training anomaly detection model (Isolation Forest)...
+2025-04-17 05:54:45,650 - INFO - 
+Models trained and saved successfully (version: 20250417_0554)
+2025-04-17 05:54:45,650 - INFO - Best model (Gradient Boosting) set as default supervised model

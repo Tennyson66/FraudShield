@@ -1,0 +1,32 @@
+{
+  "version": "20250417_0554",
+  "timestamp": "2025-04-17T05:54:45.634822",
+  "features": [
+    "Hour of Day",
+    "Transaction Amount",
+    "Transaction Velocity",
+    "Geo Difference",
+    "Amount Deviation",
+    "Is Weekend",
+    "Device Familiarity",
+    "Amount Percentile",
+    "Location Familiarity",
+    "Time Since Last"
+  ],
+  "metrics": {
+    "random_forest": {
+      "accuracy": 0.995,
+      "auc_roc": 0.9651536143915902,
+      "avg_precision": 0.8156760142390933
+    },
+    "gradient_boosting": {
+      "accuracy": 0.994,
+      "auc_roc": 0.9869367289041366,
+      "avg_precision": 0.7901950675193183
+    }
+  },
+  "best_model": "Gradient Boosting",
+  "training_samples": 8000,
+  "test_samples": 2000,
+  "fraud_ratio": 0.0149
+}

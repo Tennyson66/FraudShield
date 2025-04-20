@@ -1,0 +1,2 @@
+timestamp,user_id,amount,risk_score,decision,model_version
+2025-04-17 05:03:46,435,432,0.18410467479142237,ALLOW,RandomForestClassifier

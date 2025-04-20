@@ -1,0 +1,159 @@
+2025-04-17 06:26:46,002 - INFO - FraudShield AI - Model Retraining
+2025-04-17 06:26:46,002 - INFO - =================================
+2025-04-17 06:26:46,002 - INFO - Loading feedback data...
+2025-04-17 06:26:46,005 - WARNING - Feedback file data/feedback.csv not found.
+2025-04-17 06:26:46,005 - INFO - Creating sample feedback data for demonstration...
+2025-04-17 06:26:46,107 - INFO - Sample feedback data saved to data/feedback.csv
+2025-04-17 06:26:46,264 - INFO - Preparing training data...
+2025-04-17 06:26:46,613 - INFO - Class distribution - Fraud: 1.70%, Legitimate: 98.30%
+2025-04-17 06:26:46,613 - INFO - Retraining models...
+2025-04-17 06:26:46,622 - INFO - Performing hyperparameter tuning for Random Forest...
+2025-04-17 06:28:11,840 - INFO - Best parameters: {'max_depth': None, 'min_samples_leaf': 2, 'min_samples_split': 5, 'n_estimators': 50}
+2025-04-17 06:28:11,842 - INFO - Training supervised model (Random Forest)...
+2025-04-17 06:28:12,175 - INFO - 
+Random Forest Performance:
+2025-04-17 06:28:12,207 - INFO -               precision    recall  f1-score   support
+
+           0       0.98      1.00      0.99       197
+           1       0.00      0.00      0.00         3
+
+    accuracy                           0.98       200
+   macro avg       0.49      0.50      0.50       200
+weighted avg       0.97      0.98      0.98       200
+
+2025-04-17 06:28:12,219 - INFO - AUC-ROC: 0.3655
+2025-04-17 06:28:12,231 - INFO - 
+Top 10 Feature Importances:
+2025-04-17 06:28:12,236 - INFO -      feature  importance
+1  feature_1    0.600891
+7  feature_7    0.350776
+5  feature_5    0.046395
+3  feature_3    0.000770
+4  feature_4    0.000743
+9  feature_9    0.000248
+2  feature_2    0.000177
+0  feature_0    0.000000
+6  feature_6    0.000000
+8  feature_8    0.000000
+2025-04-17 06:28:12,261 - INFO - 
+Training anomaly detection model (Isolation Forest)...
+2025-04-17 06:45:02,829 - INFO - FraudShield AI - Model Retraining
+2025-04-17 06:45:02,829 - INFO - =================================
+2025-04-17 06:45:02,829 - INFO - Loading feedback data...
+2025-04-17 06:45:02,985 - INFO - Preparing training data...
+2025-04-17 06:45:03,282 - INFO - Class distribution - Fraud: 1.70%, Legitimate: 98.30%
+2025-04-17 06:45:03,282 - INFO - Retraining models...
+2025-04-17 06:45:03,283 - INFO - Performing hyperparameter tuning for Random Forest...
+2025-04-17 06:46:03,139 - INFO - Best parameters: {'max_depth': None, 'min_samples_leaf': 2, 'min_samples_split': 5, 'n_estimators': 50}
+2025-04-17 06:46:03,139 - INFO - Training supervised model (Random Forest)...
+2025-04-17 06:46:03,374 - INFO - 
+Random Forest Performance:
+2025-04-17 06:46:03,390 - INFO -               precision    recall  f1-score   support
+
+           0       0.98      1.00      0.99       197
+           1       0.00      0.00      0.00         3
+
+    accuracy                           0.98       200
+   macro avg       0.49      0.50      0.50       200
+weighted avg       0.97      0.98      0.98       200
+
+2025-04-17 06:46:03,395 - INFO - AUC-ROC: 0.3824
+2025-04-17 06:46:03,405 - INFO - 
+Top 10 Feature Importances:
+2025-04-17 06:46:03,405 - INFO -      feature  importance
+1  feature_1    0.582254
+7  feature_7    0.362369
+5  feature_5    0.053294
+3  feature_3    0.001020
+4  feature_4    0.000720
+9  feature_9    0.000207
+2  feature_2    0.000135
+0  feature_0    0.000000
+6  feature_6    0.000000
+8  feature_8    0.000000
+2025-04-17 06:46:03,418 - INFO - 
+Training anomaly detection model (Isolation Forest)...
+2025-04-17 06:56:07,294 - INFO - FraudShield AI - Model Retraining
+2025-04-17 06:56:07,294 - INFO - =================================
+2025-04-17 06:56:07,294 - INFO - Loading feedback data...
+2025-04-17 06:56:07,376 - INFO - Preparing training data...
+2025-04-17 06:56:07,577 - INFO - Class distribution - Fraud: 1.70%, Legitimate: 98.30%
+2025-04-17 06:56:07,577 - INFO - Retraining models...
+2025-04-17 06:56:07,584 - INFO - Performing hyperparameter tuning for Random Forest...
+2025-04-17 06:56:59,840 - INFO - Best parameters: {'max_depth': None, 'min_samples_leaf': 2, 'min_samples_split': 5, 'n_estimators': 50}
+2025-04-17 06:56:59,840 - INFO - Training supervised model (Random Forest)...
+2025-04-17 06:57:00,304 - INFO - 
+Random Forest Performance:
+2025-04-17 06:57:00,353 - INFO -               precision    recall  f1-score   support
+
+           0       0.98      1.00      0.99       197
+           1       0.00      0.00      0.00         3
+
+    accuracy                           0.98       200
+   macro avg       0.49      0.50      0.50       200
+weighted avg       0.97      0.98      0.98       200
+
+2025-04-17 06:57:00,358 - INFO - AUC-ROC: 0.3706
+2025-04-17 06:57:00,383 - INFO - 
+Top 10 Feature Importances:
+2025-04-17 06:57:00,383 - INFO -      feature  importance
+1  feature_1    0.569408
+7  feature_7    0.373895
+5  feature_5    0.054508
+4  feature_4    0.001044
+3  feature_3    0.000835
+9  feature_9    0.000220
+2  feature_2    0.000089
+0  feature_0    0.000000
+6  feature_6    0.000000
+8  feature_8    0.000000
+2025-04-17 06:57:00,413 - INFO - 
+Training anomaly detection model (Isolation Forest)...
+2025-04-17 16:28:27,745 - INFO - FraudShield AI - Model Retraining
+2025-04-17 16:28:27,750 - INFO - =================================
+2025-04-17 16:28:27,757 - INFO - Loading feedback data...
+2025-04-17 16:28:27,973 - INFO - Preparing training data...
+2025-04-17 16:28:28,511 - INFO - Class distribution - Fraud: 1.70%, Legitimate: 98.30%
+2025-04-17 16:28:28,511 - INFO - Retraining models...
+2025-04-17 16:28:28,517 - INFO - Performing hyperparameter tuning for Random Forest...
+2025-04-17 16:29:42,545 - INFO - Best parameters: {'max_depth': None, 'min_samples_leaf': 2, 'min_samples_split': 5, 'n_estimators': 50}
+2025-04-17 16:29:42,545 - INFO - Training supervised model (Random Forest)...
+2025-04-17 16:29:43,019 - INFO - 
+Random Forest Performance:
+2025-04-17 16:29:43,057 - INFO -               precision    recall  f1-score   support
+
+           0       0.98      1.00      0.99       197
+           1       0.00      0.00      0.00         3
+
+    accuracy                           0.98       200
+   macro avg       0.49      0.50      0.50       200
+weighted avg       0.97      0.98      0.98       200
+
+2025-04-17 16:29:43,063 - INFO - AUC-ROC: 0.3384
+2025-04-17 16:29:43,089 - INFO - 
+Top 10 Feature Importances:
+2025-04-17 16:29:43,089 - INFO -      feature  importance
+1  feature_1    0.569565
+7  feature_7    0.379233
+5  feature_5    0.048764
+4  feature_4    0.001157
+3  feature_3    0.000997
+9  feature_9    0.000219
+2  feature_2    0.000066
+0  feature_0    0.000000
+6  feature_6    0.000000
+8  feature_8    0.000000
+2025-04-17 16:29:43,167 - INFO - 
+Training anomaly detection model (Isolation Forest)...
+2025-04-17 16:29:43,958 - INFO - 
+Model Performance Comparison:
+2025-04-17 16:29:43,958 - INFO - Old Model - AUC-ROC: 0.5000, Avg Precision: 0.0150
+2025-04-17 16:29:43,961 - INFO - New Model - AUC-ROC: 0.3384, Avg Precision: 0.0179
+2025-04-17 16:29:43,961 - INFO - Improvement - AUC-ROC: -16.16%, Avg Precision: 0.29%
+2025-04-17 16:29:46,507 - INFO - Performance comparison visualization saved to visualizations/model_comparison_20250417_1629.png
+2025-04-17 16:29:47,039 - INFO - 
+Models trained and saved successfully (version: 20250417_1629)
+2025-04-17 16:29:47,039 - INFO - 
+Retraining complete!
+2025-04-17 16:29:47,039 - INFO - New models saved as version: 20250417_1629
+2025-04-17 16:29:47,039 - INFO - The models have been set as the current active models.

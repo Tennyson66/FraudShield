@@ -1,0 +1,18 @@
+[
+  {
+    "timestamp": "2025-04-17 05:03:46",
+    "transaction": {
+      "user_id": "435",
+      "amount": 432,
+      "device_id": "23",
+      "timestamp": "2025-04-16T23:33:46.176Z",
+      "location": {
+        "lat": 34,
+        "lon": 34
+      }
+    },
+    "risk_score": 0.18410467479142237,
+    "decision": "ALLOW",
+    "model_version": "RandomForestClassifier"
+  }
+]

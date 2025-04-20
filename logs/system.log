@@ -1,0 +1,761 @@
+2025-04-17 05:43:00,518 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 05:43:00,523 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 05:46:58,888 - fraudshield - INFO - Models loaded successfully
+2025-04-17 05:46:58,937 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 05:46:58,937 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 05:46:58,942 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 05:47:02,450 - fraudshield - INFO - Models loaded successfully
+2025-04-17 05:47:02,466 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 05:47:02,471 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 05:47:14,470 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:47:14] "GET / HTTP/1.1" 200 -
+2025-04-17 05:47:14,601 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:47:14] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-04-17 05:47:14,729 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:47:14] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 05:47:14,808 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:47:14] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 05:47:27,118 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:47:27] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 05:47:27,420 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:47:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 05:47:27,471 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:47:27] "[33mGET /static/img/avatar.png HTTP/1.1[0m" 404 -
+2025-04-17 05:47:40,376 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:47:40] "[33mGET /settings HTTP/1.1[0m" 404 -
+2025-04-17 05:47:44,294 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:47:44] "[33mGET /test HTTP/1.1[0m" 404 -
+2025-04-17 05:47:46,933 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:47:46] "[33mGET /analytics HTTP/1.1[0m" 404 -
+2025-04-17 05:47:48,980 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:47:48] "[33mGET /transactions HTTP/1.1[0m" 404 -
+2025-04-17 05:47:51,143 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:47:51] "GET / HTTP/1.1" 200 -
+2025-04-17 05:47:51,452 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:47:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 05:47:51,480 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:47:51] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 05:47:51,482 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:47:51] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 05:47:59,767 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:47:59] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 05:48:00,068 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:48:00] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 05:48:00,103 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:48:00] "[33mGET /static/img/avatar.png HTTP/1.1[0m" 404 -
+2025-04-17 05:48:17,601 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:48:17] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 05:48:51,931 - werkzeug - INFO -  * Detected change in 'e:\\fraudshield\\train_models.py', reloading
+2025-04-17 05:48:52,397 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 05:48:56,935 - fraudshield - INFO - Models loaded successfully
+2025-04-17 05:48:56,960 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 05:48:56,960 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 05:50:54,354 - werkzeug - INFO -  * Detected change in 'e:\\fraudshield\\app.py', reloading
+2025-04-17 05:50:54,676 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 05:50:58,472 - fraudshield - INFO - Models loaded successfully
+2025-04-17 05:50:58,493 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 05:50:58,501 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 05:52:03,329 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:03] "GET / HTTP/1.1" 200 -
+2025-04-17 05:52:03,512 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:03] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-04-17 05:52:03,574 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:03] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 05:52:03,671 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:03] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 05:52:04,088 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:04] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:18,841 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:18] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 05:52:19,135 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 05:52:19,170 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:19] "[33mGET /static/img/avatar.png HTTP/1.1[0m" 404 -
+2025-04-17 05:52:21,302 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:21] "GET / HTTP/1.1" 200 -
+2025-04-17 05:52:21,387 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 05:52:21,554 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:21] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 05:52:21,636 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:21] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 05:52:21,710 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:21] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:27,902 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:27] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:29,235 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:29] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:30,253 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:30] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:30,495 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:30] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:30,570 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:30] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:30,804 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:30] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:30,886 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:30] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:31,111 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:31] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:31,236 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:31] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:31,436 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:31] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:31,620 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:31] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:31,803 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:31] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:32,003 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:32] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:32,186 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:32] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:32,370 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:32] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:32,544 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:32] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:33,251 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:33] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:42,872 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:42] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:43,678 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:43] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:52:44,670 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:52:44] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:58:08,376 - fraudshield - INFO - Models loaded successfully
+2025-04-17 05:58:08,407 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 05:58:08,407 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 05:58:08,409 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 05:58:11,996 - fraudshield - INFO - Models loaded successfully
+2025-04-17 05:58:12,026 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 05:58:12,035 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 05:58:16,649 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:58:16] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 05:58:16,651 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:58:16] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 05:58:16,856 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:58:16] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 05:58:17,005 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:58:17] "[33mGET /static/img/avatar.png HTTP/1.1[0m" 404 -
+2025-04-17 05:58:28,321 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:58:28] "GET / HTTP/1.1" 200 -
+2025-04-17 05:58:28,403 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:58:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 05:58:28,570 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:58:28] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 05:58:28,673 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:58:28] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 05:58:28,774 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:58:28] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:58:48,108 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:58:48] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 05:58:49,388 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 05:58:49] "GET /api/transactions HTTP/1.1" 200 -
+2025-04-17 06:00:30,525 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:00:30] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 06:00:30,565 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:00:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 06:00:47,083 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:00:47] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 06:00:47,391 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:00:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 06:05:39,437 - werkzeug - INFO -  * Detected change in 'e:\\fraudshield\\app.py', reloading
+2025-04-17 06:05:39,677 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 06:05:43,349 - fraudshield - INFO - Models loaded successfully
+2025-04-17 06:05:43,373 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 06:05:43,380 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 06:15:47,584 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:15:47] "GET / HTTP/1.1" 200 -
+2025-04-17 06:15:47,683 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:15:47] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 06:15:47,828 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:15:47] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 06:15:47,925 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:15:47] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 06:15:48,792 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:15:48] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 06:16:14,364 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:16:14] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 06:16:14,659 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:16:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 06:19:39,470 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:19:39] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 06:19:39,496 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:19:39] "GET /static/css/retrain.css HTTP/1.1" 200 -
+2025-04-17 06:25:55,675 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:25:55] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 06:25:56,417 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:25:56] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 06:25:57,303 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:25:57] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 06:25:58,542 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:25:58] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 06:26:09,350 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:26:09] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 06:26:09,412 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:26:09] "[36mGET /static/css/retrain.css HTTP/1.1[0m" 304 -
+2025-04-17 06:26:21,058 - fraudshield - INFO - Activated model version 20250417_0445
+2025-04-17 06:26:21,209 - fraudshield - INFO - Models reloaded successfully
+2025-04-17 06:26:21,209 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:26:21] "POST /retrain HTTP/1.1" 200 -
+2025-04-17 06:26:21,245 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:26:21] "[36mGET /static/css/retrain.css HTTP/1.1[0m" 304 -
+2025-04-17 06:26:29,149 - fraudshield - INFO - Activated model version 20250417_0554
+2025-04-17 06:26:29,243 - fraudshield - INFO - Models reloaded successfully
+2025-04-17 06:26:29,243 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:26:29] "POST /retrain HTTP/1.1" 200 -
+2025-04-17 06:26:29,268 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:26:29] "[36mGET /static/css/retrain.css HTTP/1.1[0m" 304 -
+2025-04-17 06:26:31,874 - fraudshield - INFO - Activated model version 20250417_0445
+2025-04-17 06:26:32,035 - fraudshield - INFO - Models reloaded successfully
+2025-04-17 06:26:32,043 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:26:32] "POST /retrain HTTP/1.1" 200 -
+2025-04-17 06:26:32,100 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:26:32] "[36mGET /static/css/retrain.css HTTP/1.1[0m" 304 -
+2025-04-17 06:28:14,174 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:28:14] "POST /retrain HTTP/1.1" 200 -
+2025-04-17 06:28:14,527 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:28:14] "[36mGET /static/css/retrain.css HTTP/1.1[0m" 304 -
+2025-04-17 06:46:04,871 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:46:04] "POST /retrain HTTP/1.1" 200 -
+2025-04-17 06:46:05,282 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:46:05] "[36mGET /static/css/retrain.css HTTP/1.1[0m" 304 -
+2025-04-17 06:47:14,646 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:47:14] "GET / HTTP/1.1" 200 -
+2025-04-17 06:47:14,901 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:47:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 06:47:15,033 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:47:15] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 06:47:15,038 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:47:15] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 06:47:16,323 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:47:16] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 06:47:20,844 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:47:20] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 06:49:07,078 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:49:07] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 06:49:07,152 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:49:07] "GET /static/css/retrain.css HTTP/1.1" 200 -
+2025-04-17 06:50:42,778 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:50:42] "GET / HTTP/1.1" 200 -
+2025-04-17 06:50:43,035 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:50:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 06:50:43,159 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:50:43] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 06:50:43,159 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:50:43] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 06:50:44,759 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:50:44] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 06:51:40,171 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:51:40] "GET / HTTP/1.1" 200 -
+2025-04-17 06:51:40,483 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:51:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 06:51:40,507 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:51:40] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 06:51:40,512 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:51:40] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 06:51:42,199 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:51:42] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 06:51:59,660 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:51:59] "[33mPOST /api/score-transaction HTTP/1.1[0m" 404 -
+2025-04-17 06:52:11,902 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:52:11] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 06:52:11,939 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:52:11] "[36mGET /static/css/retrain.css HTTP/1.1[0m" 304 -
+2025-04-17 06:52:32,560 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:52:32] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 06:52:32,873 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:52:32] "GET /static/css/retrain.css HTTP/1.1" 200 -
+2025-04-17 06:55:45,435 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:55:45] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 06:55:45,476 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:55:45] "GET /static/css/retrain.css HTTP/1.1" 200 -
+2025-04-17 06:55:46,381 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:55:46] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 06:55:46,683 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:55:46] "[36mGET /static/css/retrain.css HTTP/1.1[0m" 304 -
+2025-04-17 06:55:47,860 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:55:47] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 06:55:47,964 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:55:47] "[36mGET /static/css/retrain.css HTTP/1.1[0m" 304 -
+2025-04-17 06:55:58,857 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:55:58] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 06:55:59,165 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:55:59] "[36mGET /static/css/retrain.css HTTP/1.1[0m" 304 -
+2025-04-17 06:56:01,251 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:56:01] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 06:56:01,279 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:56:01] "[36mGET /static/css/retrain.css HTTP/1.1[0m" 304 -
+2025-04-17 06:56:01,511 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:56:01] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 06:56:01,783 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:56:01] "[36mGET /static/css/retrain.css HTTP/1.1[0m" 304 -
+2025-04-17 06:56:22,412 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:56:22] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 06:57:02,119 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 06:57:02] "POST /retrain HTTP/1.1" 200 -
+2025-04-17 07:03:19,808 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:03:19] "GET / HTTP/1.1" 200 -
+2025-04-17 07:03:19,911 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:03:19] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 07:03:20,053 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:03:20] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 07:03:20,300 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:03:20] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 07:03:21,429 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:03:21] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:03:22,917 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:03:22] "[35m[1mGET /retrain HTTP/1.1[0m" 500 -
+2025-04-17 07:03:23,161 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:03:23] "GET /retrain?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+2025-04-17 07:03:23,357 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:03:23] "GET /retrain?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-04-17 07:03:23,732 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:03:23] "GET /retrain?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+2025-04-17 07:03:23,791 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:03:23] "GET /retrain?__debugger__=yes&cmd=resource&f=console.png&s=I6yTEJesCJA17d3OhFD4 HTTP/1.1" 200 -
+2025-04-17 07:03:24,029 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:03:24] "GET /retrain?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+2025-04-17 07:05:09,505 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:05:09] "[35m[1mGET /retrain HTTP/1.1[0m" 500 -
+2025-04-17 07:05:09,542 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:05:09] "[36mGET /retrain?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-17 07:05:09,711 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:05:09] "[36mGET /retrain?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-17 07:05:10,044 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:05:10] "[36mGET /retrain?__debugger__=yes&cmd=resource&f=console.png&s=I6yTEJesCJA17d3OhFD4 HTTP/1.1[0m" 304 -
+2025-04-17 07:05:10,296 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:05:10] "[36mGET /retrain?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-04-17 07:05:12,061 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:05:12] "[35m[1mGET /retrain HTTP/1.1[0m" 500 -
+2025-04-17 07:05:12,334 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:05:12] "[36mGET /retrain?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1[0m" 304 -
+2025-04-17 07:05:12,397 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:05:12] "[36mGET /retrain?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-17 07:05:12,727 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:05:12] "[36mGET /retrain?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1[0m" 304 -
+2025-04-17 07:05:12,741 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:05:12] "[36mGET /retrain?__debugger__=yes&cmd=resource&f=console.png&s=I6yTEJesCJA17d3OhFD4 HTTP/1.1[0m" 304 -
+2025-04-17 07:05:12,997 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:05:12] "[36mGET /retrain?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1[0m" 304 -
+2025-04-17 07:05:23,403 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:05:23] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 07:05:23,690 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:05:23] "[33mGET /static/css/retr.css HTTP/1.1[0m" 404 -
+2025-04-17 07:06:37,848 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:06:37] "GET / HTTP/1.1" 200 -
+2025-04-17 07:06:38,105 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:06:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 07:06:38,180 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:06:38] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 07:06:38,238 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:06:38] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 07:06:40,517 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:06:40] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:06:43,499 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:06:43] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:06:52,474 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:06:52] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 07:06:52,777 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:06:52] "[33mGET /static/css/retr.css HTTP/1.1[0m" 404 -
+2025-04-17 07:07:16,687 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:07:16] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 07:18:14,449 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:14] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 07:18:20,090 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:20] "GET /analytics HTTP/1.1" 200 -
+2025-04-17 07:18:20,140 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 07:18:20,449 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:20] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 07:18:20,456 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:20] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 07:18:22,275 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:22] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:18:23,078 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:23] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 07:18:24,502 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:24] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 07:18:30,350 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:30] "[33mGET /api/model-comparison?version=20250417_0554 HTTP/1.1[0m" 404 -
+2025-04-17 07:18:34,173 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:34] "[33mGET /download-model?version=20250417_0554 HTTP/1.1[0m" 404 -
+2025-04-17 07:18:39,665 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:39] "[33mGET /api/model-comparison?version=20250417_0445 HTTP/1.1[0m" 404 -
+2025-04-17 07:18:43,266 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:43] "GET /transactions HTTP/1.1" 200 -
+2025-04-17 07:18:43,574 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 07:18:43,609 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:43] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 07:18:43,616 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:43] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 07:18:43,642 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:43] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 07:18:45,162 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:45] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:18:48,292 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:18:48] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 07:35:46,379 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:35:46] "GET / HTTP/1.1" 200 -
+2025-04-17 07:35:46,462 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:35:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 07:35:46,640 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:35:46] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 07:35:46,769 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:35:46] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 07:35:47,601 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:35:47] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:35:48,974 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:35:48] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 07:35:55,235 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:35:55] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:35:59,581 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:35:59] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:36:03,512 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:36:03] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:37:09,355 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:37:09] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:38:12,787 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:38:12] "GET / HTTP/1.1" 200 -
+2025-04-17 07:38:12,831 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:38:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 07:38:13,038 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:38:13] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 07:38:13,152 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:38:13] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 07:38:14,722 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:38:14] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:38:15,769 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:38:15] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 07:38:19,673 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:38:19] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:40:14,088 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:40:14] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:43:14,905 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:43:14] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:48:14,603 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:48:14] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:49:32,670 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:49:32] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 07:49:50,094 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:49:50] "GET / HTTP/1.1" 200 -
+2025-04-17 07:49:50,129 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:49:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 07:49:50,459 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:49:50] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 07:49:50,465 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:49:50] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 07:49:52,087 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:49:52] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:49:53,271 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:49:53] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 07:49:58,631 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:49:58] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:50:02,454 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:50:02] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:50:05,687 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:50:05] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:50:09,551 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:50:09] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:51:04,315 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:51:04] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 07:52:10,357 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:52:10] "GET / HTTP/1.1" 200 -
+2025-04-17 07:52:10,476 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:52:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 07:52:10,625 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:52:10] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 07:52:10,730 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:52:10] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 07:52:12,392 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:52:12] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:52:23,470 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:52:23] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:52:28,172 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:52:28] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:52:33,215 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:52:33] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:52:54,314 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:52:54] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 07:52:59,322 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:52:59] "[33mGET /api/model-comparison?version=20250417_0554 HTTP/1.1[0m" 404 -
+2025-04-17 07:54:21,188 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:54:21] "GET / HTTP/1.1" 200 -
+2025-04-17 07:54:21,324 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:54:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 07:54:21,449 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:54:21] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 07:54:21,556 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:54:21] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 07:54:22,184 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:54:22] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 07:59:23,531 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 07:59:23] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 10:09:08,817 - fraudshield - INFO - Models loaded successfully
+2025-04-17 10:09:09,084 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 10:09:09,084 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 10:09:09,096 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 10:09:11,930 - fraudshield - INFO - Models loaded successfully
+2025-04-17 10:09:11,946 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 10:09:11,955 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 10:09:25,778 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:09:25] "GET / HTTP/1.1" 200 -
+2025-04-17 10:09:26,136 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:09:26] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 10:09:26,326 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:09:26] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 10:09:26,334 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:09:26] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 10:09:27,046 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:09:27] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-17 10:09:27,051 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:09:27] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 10:09:30,788 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:09:30] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 10:09:33,225 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:09:33] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 10:09:49,289 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:09:49] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 10:10:26,437 - werkzeug - INFO -  * Detected change in 'e:\\fraudshield\\app.py', reloading
+2025-04-17 10:10:26,779 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 10:47:28,714 - fraudshield - INFO - Models loaded successfully
+2025-04-17 10:47:28,952 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 10:47:28,952 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 10:47:28,964 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 10:47:33,571 - fraudshield - INFO - Models loaded successfully
+2025-04-17 10:47:33,592 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 10:47:33,606 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 10:47:37,013 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:47:37] "GET / HTTP/1.1" 200 -
+2025-04-17 10:47:37,162 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:47:37] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 10:47:37,370 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:47:37] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 10:47:37,370 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:47:37] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 10:47:38,638 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:47:38] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 10:47:39,688 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:47:39] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 10:48:08,757 - werkzeug - INFO -  * Detected change in 'e:\\fraudshield\\app.py', reloading
+2025-04-17 10:48:09,244 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 10:48:13,901 - fraudshield - INFO - Models loaded successfully
+2025-04-17 10:48:13,926 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 10:48:13,926 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 10:48:17,254 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:48:17] "GET / HTTP/1.1" 200 -
+2025-04-17 10:48:17,440 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:48:17] "GET /static/css/dashboard.css HTTP/1.1" 200 -
+2025-04-17 10:48:17,448 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:48:17] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 10:48:18,775 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:48:18] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 10:48:51,686 - werkzeug - INFO -  * Detected change in 'e:\\fraudshield\\app.py', reloading
+2025-04-17 10:48:51,961 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 10:48:56,403 - fraudshield - INFO - Models loaded successfully
+2025-04-17 10:48:56,432 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 10:48:56,442 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 10:50:42,845 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:50:42] "GET / HTTP/1.1" 200 -
+2025-04-17 10:50:42,989 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:50:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 10:50:43,092 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:50:43] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 10:50:43,189 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:50:43] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 10:50:43,989 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:50:43] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 10:50:45,141 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:50:45] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 10:51:10,533 - werkzeug - INFO -  * Detected change in 'e:\\fraudshield\\app.py', reloading
+2025-04-17 10:51:11,162 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 10:51:21,725 - fraudshield - INFO - Models loaded successfully
+2025-04-17 10:51:21,763 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 10:51:21,763 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 10:51:21,766 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 10:51:26,718 - fraudshield - INFO - Models loaded successfully
+2025-04-17 10:51:26,747 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 10:51:26,754 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 10:51:30,079 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:51:30] "GET / HTTP/1.1" 200 -
+2025-04-17 10:51:30,111 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:51:30] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 10:51:30,227 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:51:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 10:51:30,423 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:51:30] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 10:51:31,650 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:51:31] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 10:51:39,294 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:51:39] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 10:52:51,610 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:52:51] "GET / HTTP/1.1" 200 -
+2025-04-17 10:52:51,637 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:52:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 10:52:51,860 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:52:51] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 10:52:51,974 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:52:51] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 10:52:53,473 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:52:53] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 10:52:54,571 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:52:54] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 10:53:33,491 - fraudshield - INFO - Models loaded successfully
+2025-04-17 10:53:33,513 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 10:53:33,513 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 10:53:33,520 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 10:53:37,367 - fraudshield - INFO - Models loaded successfully
+2025-04-17 10:53:37,396 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 10:53:37,400 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 10:54:28,189 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:54:28] "GET / HTTP/1.1" 200 -
+2025-04-17 10:54:28,341 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:54:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 10:54:28,424 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:54:28] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 10:54:28,541 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:54:28] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 10:54:29,411 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:54:29] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 10:54:36,881 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:54:36] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 10:59:30,230 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:59:30] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 10:59:51,988 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:59:51] "GET / HTTP/1.1" 200 -
+2025-04-17 10:59:52,297 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:59:52] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 10:59:52,343 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:59:52] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 10:59:52,346 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:59:52] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 10:59:53,573 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:59:53] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 10:59:54,939 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:59:54] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 10:59:59,962 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 10:59:59] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:00:01,271 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:00:01] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:00:02,176 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:00:02] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:01:38,347 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:01:38] "GET / HTTP/1.1" 200 -
+2025-04-17 11:01:38,588 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:01:38] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 11:01:38,725 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:01:38] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 11:01:38,730 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:01:38] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 11:01:39,826 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:01:39] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:01:54,314 - fraudshield - INFO - Models loaded successfully
+2025-04-17 11:01:54,390 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 11:01:54,394 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 11:01:54,395 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 11:01:58,137 - fraudshield - INFO - Models loaded successfully
+2025-04-17 11:01:58,155 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 11:01:58,160 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 11:02:02,626 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:02] "GET / HTTP/1.1" 200 -
+2025-04-17 11:02:02,808 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 11:02:02,867 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:02] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 11:02:02,969 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:02] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 11:02:04,390 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:04] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:02:05,580 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:05] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 11:02:42,726 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:42] "GET / HTTP/1.1" 200 -
+2025-04-17 11:02:43,050 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 11:02:43,092 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:43] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 11:02:43,093 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:43] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 11:02:44,377 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:44] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:02:46,609 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:46] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 11:02:53,590 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:53] "GET / HTTP/1.1" 200 -
+2025-04-17 11:02:53,614 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 11:02:53,839 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:53] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 11:02:53,923 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:53] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 11:02:54,950 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:02:54] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:03:22,387 - werkzeug - INFO -  * Detected change in 'e:\\fraudshield\\app.py', reloading
+2025-04-17 11:03:22,851 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 11:03:57,251 - fraudshield - INFO - Models loaded successfully
+2025-04-17 11:03:57,275 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 11:03:57,275 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 11:03:57,275 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 11:04:01,577 - fraudshield - INFO - Models loaded successfully
+2025-04-17 11:04:01,603 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 11:04:01,608 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 11:04:06,549 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:04:06] "GET / HTTP/1.1" 200 -
+2025-04-17 11:04:06,792 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:04:06] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 11:04:06,837 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:04:06] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 11:04:06,893 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:04:06] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 11:04:08,196 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:04:08] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:09:08,482 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:09:08] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:12:06,767 - werkzeug - INFO -  * Detected change in 'e:\\fraudshield\\app.py', reloading
+2025-04-17 11:12:07,398 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 11:12:11,864 - fraudshield - INFO - Models loaded successfully
+2025-04-17 11:13:01,089 - fraudshield - INFO - Models loaded successfully
+2025-04-17 11:13:15,629 - fraudshield - INFO - Models loaded successfully
+2025-04-17 11:13:31,781 - fraudshield - INFO - Models loaded successfully
+2025-04-17 11:13:31,819 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 11:13:31,819 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 11:13:31,821 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 11:13:35,706 - fraudshield - INFO - Models loaded successfully
+2025-04-17 11:13:35,724 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 11:13:35,728 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 11:13:45,599 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:13:45] "GET / HTTP/1.1" 200 -
+2025-04-17 11:13:45,811 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:13:45] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 11:13:45,828 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:13:45] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 11:13:45,992 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:13:45] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 11:13:46,947 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:13:46] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:18:49,017 - fraudshield - INFO - Models loaded successfully
+2025-04-17 11:18:49,053 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.43.105:5000
+2025-04-17 11:18:49,053 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 11:18:49,053 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 11:18:53,748 - fraudshield - INFO - Models loaded successfully
+2025-04-17 11:18:53,773 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 11:18:53,782 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 11:19:07,459 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:19:07] "GET / HTTP/1.1" 200 -
+2025-04-17 11:19:07,606 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:19:07] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 11:19:07,699 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:19:07] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 11:19:07,808 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:19:07] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 11:19:08,131 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:19:08] "[33mGET /api/sample-transactions HTTP/1.1[0m" 404 -
+2025-04-17 11:19:08,192 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:19:08] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -
+2025-04-17 11:19:16,493 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:19:16] "[33mGET /retrain HTTP/1.1[0m" 404 -
+2025-04-17 11:23:50,578 - werkzeug - INFO -  * Detected change in 'e:\\fraudshield\\app.py', reloading
+2025-04-17 11:23:51,012 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 11:24:33,584 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 11:24:38,689 - fraudshield - INFO - Models loaded successfully
+2025-04-17 11:24:38,752 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 11:24:38,766 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 11:24:51,098 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:24:51] "GET / HTTP/1.1" 200 -
+2025-04-17 11:24:51,255 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:24:51] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 11:24:51,333 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:24:51] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 11:24:51,444 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:24:51] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 11:24:52,249 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:24:52] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:25:03,851 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:25:03] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 11:29:52,699 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:29:52] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:32:04,609 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:32:04] "GET / HTTP/1.1" 200 -
+2025-04-17 11:32:04,643 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:32:04] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 11:32:04,868 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:32:04] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 11:32:04,960 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:32:04] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 11:32:05,959 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:32:05] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:32:06,996 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:32:06] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:37:06,533 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:37:06] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:40:21,378 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:40:21] "GET / HTTP/1.1" 200 -
+2025-04-17 11:40:21,405 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:40:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 11:40:21,629 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:40:21] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 11:40:21,712 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:40:21] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 11:40:22,919 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:40:22] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:40:24,166 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 11:40:24] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 11:45:13,617 - werkzeug - INFO -  * Detected change in 'e:\\fraudshield\\app.py', reloading
+2025-04-17 11:45:13,905 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 12:02:00,352 - fraudshield - INFO - Models loaded successfully
+2025-04-17 12:02:00,405 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 12:02:00,405 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 12:02:00,411 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 12:02:29,425 - fraudshield - INFO - Models loaded successfully
+2025-04-17 12:02:29,490 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 12:02:29,506 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 12:02:39,800 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:02:39] "GET / HTTP/1.1" 200 -
+2025-04-17 12:02:39,866 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:02:39] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 12:02:39,983 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:02:39] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 12:02:40,175 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:02:40] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 12:02:40,989 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:02:40] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:02:41,786 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:02:41] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:02:47,741 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:02:47] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 12:02:49,767 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:02:49] "GET /analytics HTTP/1.1" 200 -
+2025-04-17 12:02:50,084 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:02:50] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 12:02:50,131 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:02:50] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 12:02:50,139 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:02:50] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 12:02:51,397 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:02:51] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:02:52,260 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:02:52] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:05:05,183 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:05:05] "GET /analytics HTTP/1.1" 200 -
+2025-04-17 12:05:05,241 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:05:05] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 12:05:05,434 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:05:05] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 12:05:05,551 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:05:05] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 12:05:06,944 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:05:06] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:05:08,955 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:05:08] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:06:45,809 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:06:45] "GET /analytics HTTP/1.1" 200 -
+2025-04-17 12:06:45,870 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:06:45] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 12:06:46,026 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:06:46] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 12:06:46,189 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:06:46] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 12:06:47,568 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:06:47] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:06:49,385 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:06:49] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:10:43,791 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:10:43] "GET /analytics HTTP/1.1" 200 -
+2025-04-17 12:10:43,853 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:10:43] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 12:10:44,017 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:10:44] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 12:10:44,167 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:10:44] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 12:10:45,753 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:10:45] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:10:47,717 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:10:47] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:15:04,434 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:15:04] "GET /analytics HTTP/1.1" 200 -
+2025-04-17 12:15:04,541 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:15:04] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 12:15:04,694 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:15:04] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 12:15:04,855 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:15:04] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 12:15:06,146 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:15:06] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:15:07,254 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:15:07] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:19:02,742 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:19:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 12:20:06,784 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:20:06] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:23:25,094 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:23:25] "GET /analytics HTTP/1.1" 200 -
+2025-04-17 12:23:25,164 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:23:25] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 12:23:25,320 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:23:25] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 12:23:25,472 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:23:25] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 12:23:27,496 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:23:27] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:23:29,726 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:23:29] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:26:19,336 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:26:19] "GET /analytics HTTP/1.1" 200 -
+2025-04-17 12:26:19,373 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:26:19] "GET /static/css/style.css HTTP/1.1" 200 -
+2025-04-17 12:26:19,560 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:26:19] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 12:26:19,680 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:26:19] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 12:26:21,591 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:26:21] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:26:23,049 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:26:23] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:26:30,928 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:26:30] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 12:26:36,224 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:26:36] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:26:57,128 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:26:57] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:27:00,697 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:27:00] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:27:02,454 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:27:02] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:27:22,167 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:27:22] "GET /analytics HTTP/1.1" 200 -
+2025-04-17 12:27:22,193 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:27:22] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 12:27:22,435 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:27:22] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 12:27:22,504 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:27:22] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 12:27:23,981 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:27:23] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:27:25,154 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:27:25] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:27:41,712 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:27:41] "GET /analytics HTTP/1.1" 200 -
+2025-04-17 12:27:42,018 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:27:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 12:27:42,048 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:27:42] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 12:27:42,052 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:27:42] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 12:27:43,657 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:27:43] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:27:44,945 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:27:44] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:29:28,273 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:29:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 12:30:04,458 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:30:04] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:32:43,920 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:32:43] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:34:20,243 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:34:20] "GET /analytics HTTP/1.1" 200 -
+2025-04-17 12:34:20,277 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:34:20] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 12:34:20,478 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:34:20] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 12:34:20,588 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:34:20] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 12:34:22,307 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:34:22] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:34:23,646 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:34:23] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:39:22,679 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:39:22] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:40:27,472 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:40:27] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 12:40:31,916 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:40:31] "[33mGET /api/model-comparison?version=20250417_0445 HTTP/1.1[0m" 404 -
+2025-04-17 12:41:56,820 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:41:56] "GET /analytics HTTP/1.1" 200 -
+2025-04-17 12:41:56,898 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:41:56] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 12:41:57,061 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:41:57] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 12:41:57,217 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:41:57] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 12:41:58,529 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:41:58] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:41:59,775 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:41:59] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:42:27,437 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:42:27] "GET /analytics HTTP/1.1" 200 -
+2025-04-17 12:42:27,747 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:42:27] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 12:42:27,776 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:42:27] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 12:42:27,776 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:42:27] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 12:42:29,571 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:42:29] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:42:30,798 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:42:30] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:42:42,008 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:42:42] "GET /analytics HTTP/1.1" 200 -
+2025-04-17 12:42:42,321 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:42:42] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 12:42:42,347 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:42:42] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 12:42:42,358 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:42:42] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 12:42:44,024 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:42:44] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:42:45,326 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:42:45] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 12:42:45,938 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 12:42:45] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 13:30:48,460 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:30:48] "GET / HTTP/1.1" 200 -
+2025-04-17 13:30:48,701 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:30:48] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 13:30:48,720 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:30:48] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 13:30:48,832 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:30:48] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 13:30:50,036 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:30:50] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:30:51,736 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:30:51] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:31:55,834 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:31:55] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 13:35:21,445 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:35:21] "GET / HTTP/1.1" 200 -
+2025-04-17 13:35:21,681 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:35:21] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 13:35:21,689 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:35:21] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 13:35:21,825 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:35:21] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 13:35:23,306 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:35:23] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:35:25,294 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:35:25] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:35:37,148 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:35:37] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:35:43,470 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:35:43] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:35:46,777 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:35:46] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:35:50,857 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:35:50] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:35:59,699 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:35:59] "GET / HTTP/1.1" 200 -
+2025-04-17 13:35:59,994 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:35:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 13:36:00,045 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:36:00] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 13:36:00,052 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:36:00] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 13:36:01,617 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:36:01] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:36:02,932 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:36:02] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:41:01,710 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:41:01] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:42:05,799 - werkzeug - INFO -  * Detected change in 'e:\\fraudshield\\app.py', reloading
+2025-04-17 13:42:08,707 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 13:42:33,028 - fraudshield - INFO - Models loaded successfully
+2025-04-17 13:42:59,834 - fraudshield - INFO - Models loaded successfully
+2025-04-17 13:42:59,879 - werkzeug - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on http://127.0.0.1:5000
+2025-04-17 13:42:59,879 - werkzeug - INFO - [33mPress CTRL+C to quit[0m
+2025-04-17 13:42:59,885 - werkzeug - INFO -  * Restarting with stat
+2025-04-17 13:43:23,968 - fraudshield - INFO - Models loaded successfully
+2025-04-17 13:43:24,035 - werkzeug - WARNING -  * Debugger is active!
+2025-04-17 13:43:24,051 - werkzeug - INFO -  * Debugger PIN: 107-677-149
+2025-04-17 13:43:32,102 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:43:32] "GET /dashboard2 HTTP/1.1" 200 -
+2025-04-17 13:43:32,168 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:43:32] "GET / HTTP/1.1" 200 -
+2025-04-17 13:43:32,440 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:43:32] "GET /static/css/dashboard.css HTTP/1.1" 200 -
+2025-04-17 13:43:32,483 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:43:32] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 13:43:33,988 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:43:33] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:43:35,336 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:43:35] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:43:35,336 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:43:35] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 13:45:40,968 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:45:40] "GET / HTTP/1.1" 200 -
+2025-04-17 13:45:41,895 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:45:41] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 13:50:32,980 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:50:32] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:50:37,496 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:50:37] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:50:39,561 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:50:39] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:50:42,204 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:50:42] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:50:43,793 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:50:43] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:50:46,184 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:50:46] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:53:08,702 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:53:08] "GET / HTTP/1.1" 200 -
+2025-04-17 13:53:08,744 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:53:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 13:53:08,961 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:53:08] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 13:53:09,054 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:53:09] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 13:53:10,505 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:53:10] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:53:11,759 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:53:11] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:53:16,124 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:53:16] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 13:58:10,796 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:58:10] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:58:12,487 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:58:12] "GET / HTTP/1.1" 200 -
+2025-04-17 13:58:12,798 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:58:12] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 13:58:12,834 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:58:12] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 13:58:12,841 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:58:12] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 13:58:14,064 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:58:14] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:58:15,070 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:58:15] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 13:58:18,120 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 13:58:18] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 14:03:15,275 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:03:15] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:07:10,253 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:07:10] "GET / HTTP/1.1" 200 -
+2025-04-17 14:07:10,285 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:07:10] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 14:07:10,492 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:07:10] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 14:07:10,612 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:07:10] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 14:07:12,389 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:07:12] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:07:14,420 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:07:14] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:12:11,656 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:12:11] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:17:11,527 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:17:11] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:20:41,549 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:20:41] "GET / HTTP/1.1" 200 -
+2025-04-17 14:20:41,571 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:20:41] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 14:20:41,809 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:20:41] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 14:20:41,878 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:20:41] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 14:20:42,898 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:20:42] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:20:43,747 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:20:43] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:20:59,485 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:20:59] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 14:22:14,589 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:22:14] "GET / HTTP/1.1" 200 -
+2025-04-17 14:22:14,646 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:22:14] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 14:22:14,843 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:22:14] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 14:22:14,959 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:22:14] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 14:22:16,123 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:22:16] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:22:16,890 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:22:16] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:22:21,441 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:22:21] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:22:24,658 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:22:24] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:22:27,817 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:22:27] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:27:16,939 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:27:16] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:32:16,431 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:32:16] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:34:35,733 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:34:35] "GET / HTTP/1.1" 200 -
+2025-04-17 14:34:35,763 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:34:35] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 14:34:35,998 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:34:35] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 14:34:36,104 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:34:36] "GET /static/js/dashboard.js HTTP/1.1" 200 -
+2025-04-17 14:34:37,238 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:34:37] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:34:37,875 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:34:37] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:34:53,628 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:34:53] "GET / HTTP/1.1" 200 -
+2025-04-17 14:34:53,949 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:34:53] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 14:34:53,969 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:34:53] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 14:34:53,989 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:34:53] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 14:34:55,212 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:34:55] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:34:56,069 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:34:56] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:34:56,649 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:34:56] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 14:35:01,469 - fraudshield - INFO - Activated model version 20250417_0554
+2025-04-17 14:35:01,605 - fraudshield - INFO - Models reloaded successfully
+2025-04-17 14:35:01,609 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:35:01] "POST /retrain HTTP/1.1" 200 -
+2025-04-17 14:35:05,394 - fraudshield - INFO - Activated model version 20250417_0445
+2025-04-17 14:35:05,559 - fraudshield - INFO - Models reloaded successfully
+2025-04-17 14:35:05,563 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:35:05] "POST /retrain HTTP/1.1" 200 -
+2025-04-17 14:35:09,465 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:35:09] "GET / HTTP/1.1" 200 -
+2025-04-17 14:35:09,763 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:35:09] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 14:35:09,794 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:35:09] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 14:35:09,801 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:35:09] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 14:35:10,970 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:35:10] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:35:11,837 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:35:11] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:40:11,743 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:40:11] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:42:01,769 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:42:01] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:45:12,627 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:45:12] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:49:55,069 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:49:55] "GET / HTTP/1.1" 200 -
+2025-04-17 14:49:55,159 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:49:55] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 14:49:55,332 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:49:55] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 14:49:55,570 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:49:55] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 14:49:57,197 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:49:57] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:49:58,272 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:49:58] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:54:57,252 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:54:57] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 14:59:57,408 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 14:59:57] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 15:04:57,305 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:04:57] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 15:06:02,267 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:06:02] "GET / HTTP/1.1" 200 -
+2025-04-17 15:06:02,308 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:06:02] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 15:06:02,517 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:06:02] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 15:06:02,615 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:06:02] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 15:06:04,337 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:06:04] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 15:06:05,824 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:06:05] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 15:11:04,265 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:11:04] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 15:16:04,091 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:16:04] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 15:21:04,313 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:21:04] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 15:25:40,205 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:25:40] "GET / HTTP/1.1" 200 -
+2025-04-17 15:25:40,241 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:25:40] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 15:25:40,458 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:25:40] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 15:25:40,552 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:25:40] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 15:25:42,250 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:25:42] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 15:25:44,120 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:25:44] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 15:28:13,960 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:28:13] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 15:28:51,337 - fraudshield - INFO - Activated model version 20250417_0554
+2025-04-17 15:28:51,537 - fraudshield - INFO - Models reloaded successfully
+2025-04-17 15:28:51,546 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:28:51] "POST /retrain HTTP/1.1" 200 -
+2025-04-17 15:28:56,835 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:28:56] "GET /transactions HTTP/1.1" 200 -
+2025-04-17 15:28:57,157 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:28:57] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 15:28:57,176 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:28:57] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 15:28:57,182 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:28:57] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 15:28:58,807 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:28:58] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 15:29:00,187 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:29:00] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 15:31:58,042 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 15:31:58] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 16:12:11,527 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:12:11] "GET /retrain HTTP/1.1" 200 -
+2025-04-17 16:12:13,223 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:12:13] "GET / HTTP/1.1" 200 -
+2025-04-17 16:12:13,247 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:12:13] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 16:12:13,552 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:12:13] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 16:12:13,554 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:12:13] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 16:12:14,450 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:12:14] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 16:12:14,927 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:12:14] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 16:17:14,475 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:17:14] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 16:22:15,108 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:22:15] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 16:24:08,275 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:24:08] "GET / HTTP/1.1" 200 -
+2025-04-17 16:24:08,304 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:24:08] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 16:24:08,537 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:24:08] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 16:24:08,622 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:24:08] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 16:24:10,286 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:24:10] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 16:24:11,498 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:24:11] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 16:27:28,231 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:27:28] "GET /transactions HTTP/1.1" 200 -
+2025-04-17 16:27:28,536 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:27:28] "[36mGET /static/css/style.css HTTP/1.1[0m" 304 -
+2025-04-17 16:27:28,574 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:27:28] "[33mGET /static/img/admin.jpg HTTP/1.1[0m" 404 -
+2025-04-17 16:27:28,577 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:27:28] "[36mGET /static/js/dashboard.js HTTP/1.1[0m" 304 -
+2025-04-17 16:27:30,467 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:27:30] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 16:27:32,448 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:27:32] "GET /api/sample-transactions HTTP/1.1" 200 -
+2025-04-17 16:29:48,655 - fraudshield - INFO - Models reloaded successfully
+2025-04-17 16:29:48,672 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:29:48] "POST /retrain HTTP/1.1" 200 -
+2025-04-17 16:32:29,666 - werkzeug - INFO - 127.0.0.1 - - [17/Apr/2025 16:32:29] "GET /api/sample-transactions HTTP/1.1" 200 -
